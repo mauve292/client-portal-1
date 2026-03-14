@@ -1,8 +1,8 @@
 # Client Portal Notes
 
-- Portal content lives in `src/data/portalContent.ts`.
-- The shared placeholder video is `PLACEHOLDER_YOUTUBE_URL` at the top of that file.
-- To replace all five videos at once, change `PLACEHOLDER_YOUTUBE_URL`.
-- To use different videos later, keep the shared constant or replace each chapter object's `videoUrl` individually in `portalSections`.
-- The app reads `/client-portal/:slug` from the URL path and passes the slug into the portal for private-link context only.
-- `vercel.json` rewrites nested `/client-portal/:slug` paths to `index.html` so direct visits still load the SPA.
+- Portal copy and structure live in `src/data/portalContent.ts`.
+- The three chapter videos are centralized there as `VIDEO_1_URL`, `VIDEO_2_URL`, and `VIDEO_3_URL`.
+- To replace the current videos, update those three constants in one place.
+- To switch to different YouTube links later, keep editing the same constants or change each chapter object's `videoUrl` in `portalSections`.
+- The app reads `/client-portal/:slug` from the current path and passes the slug into the portal for private-link context only.
+- `vercel.json` keeps direct visits to nested `/client-portal/:slug` paths working by rewriting them to `index.html`.

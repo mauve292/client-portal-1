@@ -3,7 +3,6 @@ import { CTASection } from '../components/portal/CTASection';
 import { DeliverablesGrid } from '../components/portal/DeliverablesGrid';
 import { HeroSection } from '../components/portal/HeroSection';
 import { PortalShell } from '../components/portal/PortalShell';
-import { ProcessStrip } from '../components/portal/ProcessStrip';
 import { SectionProgress } from '../components/portal/SectionProgress';
 import { SoftBackground } from '../components/portal/SoftBackground';
 import { VideoNarrativeSection } from '../components/portal/VideoNarrativeSection';
@@ -29,6 +28,11 @@ const DISPLAY_SECTIONS = [
     label: section.progressLabel,
     title: section.title,
   })),
+  {
+    id: portalCta.id,
+    label: portalCta.progressLabel,
+    title: portalCta.title,
+  },
 ];
 
 function usePortalObservers() {
@@ -109,16 +113,8 @@ export function ClientPortal({ slug }: ClientPortalProps) {
   const slugPreview = useMemo(() => slug.slice(0, 8).toUpperCase(), [slug]);
 
   const sectionComponents = portalSections.map((section) => {
-    if (section.variant === 'process') {
-      return <ProcessStrip key={section.id} section={section} />;
-    }
-
-    if (section.variant === 'deliverables') {
+    if (section.variant === 'closing') {
       return <DeliverablesGrid key={section.id} section={section} />;
-    }
-
-    if (section.variant === 'cta') {
-      return <CTASection key={section.id} section={section} cta={portalCta} />;
     }
 
     return <VideoNarrativeSection key={section.id} section={section} />;
@@ -136,6 +132,7 @@ export function ClientPortal({ slug }: ClientPortalProps) {
 
       <main className="portal-main">
         {sectionComponents}
+        <CTASection cta={portalCta} />
       </main>
     </PortalShell>
   );

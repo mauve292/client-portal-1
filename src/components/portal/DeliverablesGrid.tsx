@@ -26,14 +26,28 @@ export function DeliverablesGrid({ section }: DeliverablesGridProps) {
       </div>
 
       <div className="deliverables-layout">
-        <div className="deliverables-grid">
-          {section.cards?.map((card) => (
-            <article className="deliverable-card" key={card.title}>
-              {card.meta && <span className="deliverable-card__meta">{card.meta}</span>}
-              <h3>{card.title}</h3>
-              <p>{card.body}</p>
-            </article>
-          ))}
+        <div className="deliverables-support">
+          {section.steps && (
+            <div className="deliverables-strip">
+              {section.steps.map((step, index) => (
+                <article className="deliverables-step" key={step.title}>
+                  <span className="deliverables-step__index">0{index + 1}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </article>
+              ))}
+            </div>
+          )}
+
+          <div className="deliverables-grid">
+            {section.cards?.map((card) => (
+              <article className="deliverable-card" key={card.title}>
+                {card.meta && <span className="deliverable-card__meta">{card.meta}</span>}
+                <h3>{card.title}</h3>
+                <p>{card.body}</p>
+              </article>
+            ))}
+          </div>
         </div>
 
         <VideoEmbed

@@ -1,26 +1,21 @@
-import type { CtaContent, PortalSection } from '../../data/portalContent';
-import { VideoEmbed } from './VideoEmbed';
+import type { CtaContent } from '../../data/portalContent';
 
 type CTASectionProps = {
-  section: PortalSection;
   cta: CtaContent;
 };
 
-export function CTASection({ section, cta }: CTASectionProps) {
-  const alignClass =
-    section.mediaAlign === 'left' ? 'portal-section--media-left' : 'portal-section--media-right';
-
+export function CTASection({ cta }: CTASectionProps) {
   return (
     <section
-      id={section.id}
-      className={`portal-section portal-section--cta ${alignClass}`}
-      data-section-id={section.id}
+      id={cta.id}
+      className="portal-section portal-section--cta"
+      data-section-id={cta.id}
       data-reveal
     >
       <div className="cta-panel">
         <div className="portal-section__meta">
-          <span className="eyebrow">{section.eyebrow}</span>
-          <span className="section-chapter">{section.chapter}</span>
+          <span className="eyebrow">{cta.eyebrow}</span>
+          <span className="section-chapter">{cta.chapter}</span>
         </div>
 
         <div className="portal-section__copy">
@@ -37,13 +32,6 @@ export function CTASection({ section, cta }: CTASectionProps) {
           </a>
         </div>
       </div>
-
-      <VideoEmbed
-        url={section.videoUrl}
-        title={section.videoTitle}
-        description={section.videoDescription}
-        overlayLines={section.overlayLines}
-      />
     </section>
   );
 }
