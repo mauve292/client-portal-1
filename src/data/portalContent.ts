@@ -1,7 +1,7 @@
 // Replace these three constants to update the chapter videos.
-export const VIDEO_1_URL = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
-export const VIDEO_2_URL = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
-export const VIDEO_3_URL = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+export const VIDEO_1_URL = 'https://youtube.com/shorts/4CqpEA_Vb9w?feature=share';
+export const VIDEO_2_URL = 'https://youtube.com/shorts/5jj5bsJgzf4?feature=share';
+export const VIDEO_3_URL = 'https://youtube.com/shorts/o5YY6NuGHDY?feature=share';
 
 type PortalCard = {
   title: string;
