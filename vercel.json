@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/client-portal/:slug",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/client-portal/:slug/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
