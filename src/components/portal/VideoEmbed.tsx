@@ -8,6 +8,8 @@ type VideoEmbedProps = {
 };
 
 export function VideoEmbed({ url, title, description, overlayLines }: VideoEmbedProps) {
+  const embedUrl = toYoutubeEmbedUrl(url);
+
   return (
     <div className="video-stage" data-reveal>
       <div className="video-stage__floating" aria-hidden="true">
@@ -20,14 +22,23 @@ export function VideoEmbed({ url, title, description, overlayLines }: VideoEmbed
 
       <div className="video-card">
         <div className="video-card__frame">
-          <iframe
-            src={toYoutubeEmbedUrl(url)}
-            title={`Ithaca private portal video: ${title}`}
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          />
+          {embedUrl ? (
+            <iframe
+              src={embedUrl}
+              title={`Ithaca private portal video: ${title}`}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          ) : (
+            <div className="video-card__fallback">
+              <p>Video unavailable in embed view.</p>
+              <a href={url} target="_blank" rel="noreferrer">
+                Open on YouTube
+              </a>
+            </div>
+          )}
         </div>
 
         <div className="video-card__caption">
