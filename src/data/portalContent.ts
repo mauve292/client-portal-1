@@ -35,7 +35,6 @@ export type PortalSection = {
 
 export type HeroContent = {
   eyebrow: string;
-  privateLabel: string;
   title: string;
   description: string;
   introLine: string;
@@ -70,7 +69,6 @@ export const portalMeta = {
 // Update this object to refine the opening frame copy.
 export const portalHero: HeroContent = {
   eyebrow: 'Private Ithaca review',
-  privateLabel: 'Shared privately for review',
   title: 'A private Ithaca walkthrough for strategic marketing and video direction.',
   description:
     'This portal is a guided review prepared for a real client conversation. It shows how Ithaca uses strategic clarity, message structure, and thoughtful production to make video more commercially useful.',

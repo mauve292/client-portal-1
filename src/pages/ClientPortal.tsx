@@ -151,7 +151,7 @@ export function ClientPortal({ slug }: ClientPortalProps) {
         activeSection={activeSection}
         slugPreview={slugPreview}
       />
-      <HeroSection hero={portalHero} slugPreview={slugPreview} />
+      <HeroSection hero={portalHero} />
 
       <main className="portal-main">
         {sectionComponents}

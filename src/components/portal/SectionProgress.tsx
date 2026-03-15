@@ -21,7 +21,6 @@ export function SectionProgress({
       <div className="portal-progress-bar">
         <div className="portal-progress-meta" aria-label="Portal identity">
           <span>Ithaca</span>
-          <span>Private review</span>
           <span>Ref. {slugPreview}</span>
         </div>
 
