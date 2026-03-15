@@ -106,7 +106,7 @@ export const portalSections: PortalSection[] = [
     eyebrow: 'Strategic framing',
     title: 'The work is stronger when strategy settles the message before production begins.',
     description:
-      'Ithaca starts by clarifying the market context, the audience perspective, and the decision the communication needs to support. Production becomes more precise when the message already knows its role.',
+      'Ithaca starts by clarifying the market context, the audience perspective, and the decision the communication needs to support. Production sharpens when the message already knows its role.',
     videoUrl: VIDEO_1_URL,
     videoTitle: 'Strategic framing and Ithaca point of view',
     videoDescription:
@@ -162,7 +162,7 @@ export const portalSections: PortalSection[] = [
     eyebrow: 'What the engagement produces',
     title: 'A structured engagement produces clarity, assets, and a cleaner path into execution.',
     description:
-      'The final chapter closes the loop: what you receive, how the collaboration moves, and why the process is structured to keep production calm and decisions easy to make.',
+      'The final chapter closes the loop: what you receive, how the collaboration moves, and why the process is structured to keep production calm and decisions easier to make.',
     videoUrl: VIDEO_3_URL,
     videoTitle: 'Working together and next-step orientation',
     videoDescription:
@@ -219,7 +219,7 @@ export const portalCta: CtaContent = {
   chapter: 'Closing',
   title: 'If the direction feels aligned, the next step is to move into planning with clarity.',
   description:
-    'Choose the next action that fits the conversation. The aim is not pressure. It is a clear, well-paced move from review into scope, timing, and preparation.',
+    'Choose the next action that fits the conversation. The aim is not pressure. It is a clear move from review into scope, timing, and preparation.',
   primaryAction: {
     label: 'Move into planning',
     href: 'mailto:team@ithaca.agency?subject=Continue%20to%20planning',
