@@ -67,8 +67,8 @@ function usePortalObservers() {
         });
       },
       {
-        threshold: 0.18,
-        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.14,
+        rootMargin: '0px 0px -6% 0px',
       },
     );
 
@@ -87,8 +87,8 @@ function usePortalObservers() {
         }
       },
       {
-        threshold: [0.2, 0.4, 0.6],
-        rootMargin: '-18% 0px -36% 0px',
+        threshold: [0.22, 0.4, 0.62],
+        rootMargin: '-10% 0px -44% 0px',
       },
     );
 

@@ -16,10 +16,8 @@ export function VideoEmbed({
   orientation,
 }: VideoEmbedProps) {
   const embedUrl = toYoutubeEmbedUrl(url);
-  const stageClass =
-    orientation === 'portrait' ? 'video-stage video-stage--portrait' : 'video-stage video-stage--landscape';
-  const cardClass =
-    orientation === 'portrait' ? 'video-card video-card--portrait' : 'video-card video-card--landscape';
+  const stageClass = `video-stage video-stage--${orientation}`;
+  const cardClass = `video-card video-card--${orientation}`;
   const frameClass =
     orientation === 'portrait'
       ? 'video-card__frame video-card__frame--portrait'
@@ -29,7 +27,7 @@ export function VideoEmbed({
     <div className={stageClass} data-reveal>
       <div className="video-stage__floating" aria-hidden="true">
         {overlayLines.map((line, index) => (
-          <span className={`video-stage__chip video-stage__chip--${index + 1}`} key={line}>
+          <span className="video-stage__chip" key={`${index}-${line}`}>
             {line}
           </span>
         ))}

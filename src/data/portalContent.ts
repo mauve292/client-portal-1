@@ -214,7 +214,7 @@ export const portalSections: PortalSection[] = [
 // Update this block to change the final close-of-page message and actions.
 export const portalCta: CtaContent = {
   id: 'cta',
-  progressLabel: 'Close',
+  progressLabel: 'Next Step',
   eyebrow: 'Next step',
   chapter: 'Closing',
   title: 'If the direction feels aligned, the next step is to move into planning with clarity.',
