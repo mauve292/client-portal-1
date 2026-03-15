@@ -17,23 +17,42 @@ type ClientPortalProps = {
   slug: string;
 };
 
+const CLOSE_STEP_ID = 'close';
+
 const DISPLAY_SECTIONS = [
   {
     id: 'hero',
+    targetId: 'hero',
     label: 'Opening',
     title: portalHero.title,
   },
-  ...portalSections.map((section) => ({
-    id: section.id,
-    label: section.progressLabel,
-    title: section.title,
-  })),
   {
-    id: portalCta.id,
+    id: portalSections[0].id,
+    targetId: portalSections[0].id,
+    label: portalSections[0].progressLabel,
+    title: portalSections[0].title,
+  },
+  {
+    id: portalSections[1].id,
+    targetId: portalSections[1].id,
+    label: portalSections[1].progressLabel,
+    title: portalSections[1].title,
+  },
+  {
+    id: CLOSE_STEP_ID,
+    targetId: portalSections[2].id,
     label: portalCta.progressLabel,
     title: portalCta.title,
   },
 ];
+
+function normalizeProgressSection(sectionId: string): string {
+  if (sectionId === portalSections[2].id || sectionId === portalCta.id) {
+    return CLOSE_STEP_ID;
+  }
+
+  return sectionId;
+}
 
 function usePortalObservers() {
   const [activeSection, setActiveSection] = useState(DISPLAY_SECTIONS[0].id);
@@ -60,7 +79,11 @@ function usePortalObservers() {
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
         if (visibleEntry?.target instanceof HTMLElement) {
-          setActiveSection(visibleEntry.target.dataset.sectionId ?? DISPLAY_SECTIONS[0].id);
+          setActiveSection(
+            normalizeProgressSection(
+              visibleEntry.target.dataset.sectionId ?? DISPLAY_SECTIONS[0].id,
+            ),
+          );
         }
       },
       {

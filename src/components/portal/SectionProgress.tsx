@@ -1,5 +1,6 @@
 type SectionProgressItem = {
   id: string;
+  targetId: string;
   label: string;
   title: string;
 };
@@ -30,7 +31,7 @@ export function SectionProgress({
           return (
             <a
               key={item.id}
-              href={`#${item.id}`}
+              href={`#${item.targetId}`}
               className={isActive ? 'portal-progress__item is-active' : 'portal-progress__item'}
               aria-current={isActive ? 'step' : undefined}
               aria-label={`Jump to ${item.label}: ${item.title}`}
