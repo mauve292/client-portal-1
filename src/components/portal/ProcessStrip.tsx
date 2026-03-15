@@ -43,6 +43,7 @@ export function ProcessStrip({ section }: ProcessStripProps) {
           title={section.videoTitle}
           description={section.videoDescription}
           overlayLines={section.overlayLines}
+          orientation={section.orientation}
         />
       </div>
     </section>

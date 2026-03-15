@@ -8,11 +8,15 @@ type DeliverablesGridProps = {
 export function DeliverablesGrid({ section }: DeliverablesGridProps) {
   const alignClass =
     section.mediaAlign === 'left' ? 'portal-section--media-left' : 'portal-section--media-right';
+  const orientationClass =
+    section.orientation === 'portrait'
+      ? 'portal-section--portrait'
+      : 'portal-section--landscape';
 
   return (
     <section
       id={section.id}
-      className={`portal-section portal-section--deliverables ${alignClass}`}
+      className={`portal-section portal-section--deliverables ${alignClass} ${orientationClass}`}
       data-section-id={section.id}
       data-reveal
     >
@@ -55,6 +59,7 @@ export function DeliverablesGrid({ section }: DeliverablesGridProps) {
           title={section.videoTitle}
           description={section.videoDescription}
           overlayLines={section.overlayLines}
+          orientation={section.orientation}
         />
       </div>
     </section>

@@ -459,6 +459,16 @@ select {
   gap: 2.5rem;
 }
 
+.portal-section--portrait.portal-section--split {
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.72fr);
+  gap: 4rem;
+}
+
+.portal-section--portrait .deliverables-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.78fr);
+  gap: 2rem;
+}
+
 .portal-section--cta {
   grid-template-columns: 1fr;
   justify-items: center;
@@ -538,6 +548,16 @@ select {
   padding: 2.1rem 1rem 1rem;
 }
 
+.video-stage--portrait {
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  padding: 2rem 1.8rem 1.15rem;
+}
+
+.video-stage--landscape {
+  width: 100%;
+}
+
 .video-stage__floating {
   position: absolute;
   inset: 0;
@@ -568,6 +588,21 @@ select {
   left: 7%;
 }
 
+.video-stage--portrait .video-stage__chip--1 {
+  top: 0.2rem;
+  left: 0.1rem;
+}
+
+.video-stage--portrait .video-stage__chip--2 {
+  top: 18%;
+  right: 0;
+}
+
+.video-stage--portrait .video-stage__chip--3 {
+  bottom: 0.2rem;
+  left: 2%;
+}
+
 .video-stage:hover .video-stage__chip--1,
 .video-stage:hover .video-stage__chip--3 {
   transform: translateY(-1px);
@@ -589,6 +624,15 @@ select {
   box-shadow: var(--shadow-media);
 }
 
+.video-card--portrait {
+  width: min(100%, 24rem);
+  margin-inline: auto;
+}
+
+.video-card--landscape {
+  width: 100%;
+}
+
 .video-card::before {
   content: '';
   position: absolute;
@@ -605,10 +649,17 @@ select {
   margin: 0.85rem;
   border-radius: calc(var(--radius-xl) - 10px);
   overflow: hidden;
-  padding-top: 56.25%;
   border: 1px solid rgba(95, 123, 121, 0.12);
   background:
     linear-gradient(135deg, rgba(232, 241, 238, 0.86), rgba(255, 255, 255, 0.96));
+}
+
+.video-card__frame--landscape {
+  aspect-ratio: 16 / 9;
+}
+
+.video-card__frame--portrait {
+  aspect-ratio: 9 / 16;
 }
 
 .video-card__frame iframe {
@@ -660,6 +711,10 @@ select {
   max-width: 28rem;
   display: grid;
   gap: 0.35rem;
+}
+
+.video-card--portrait .video-card__caption-copy {
+  max-width: 18rem;
 }
 
 .deliverables-layout {
@@ -816,6 +871,11 @@ select {
   .portal-section--media-left .deliverables-layout > :last-child {
     order: initial;
   }
+
+  .portal-section--portrait.portal-section--split,
+  .portal-section--portrait .deliverables-layout {
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 860px) {
@@ -850,7 +910,8 @@ select {
     padding-bottom: 4.8rem;
   }
 
-  .video-stage {
+  .video-stage,
+  .video-stage--portrait {
     padding: 0;
   }
 
@@ -866,7 +927,6 @@ select {
     position: static;
     max-width: none;
   }
-
 }
 
 @media (max-width: 640px) {
@@ -923,6 +983,10 @@ select {
 
   .video-card__frame {
     margin: 0.72rem;
+  }
+
+  .video-card--portrait {
+    width: min(100%, 21rem);
   }
 
   .cta-actions {

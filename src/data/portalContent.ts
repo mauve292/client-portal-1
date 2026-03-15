@@ -21,6 +21,7 @@ export type PortalSection = {
   progressLabel: string;
   chapter: string;
   mediaAlign?: 'left' | 'right';
+  orientation: 'portrait' | 'landscape';
   eyebrow: string;
   title: string;
   description: string;
@@ -93,12 +94,14 @@ export const portalHero: HeroContent = {
 };
 
 // Edit chapter copy here. Each chapter is driven from this file and keeps its own YouTube link.
+// Set `orientation` to `portrait` for Shorts-style media or `landscape` for standard video.
 export const portalSections: PortalSection[] = [
   {
     id: 'framing',
     variant: 'narrative',
     chapter: 'Chapter 01',
     mediaAlign: 'right',
+    orientation: 'portrait',
     progressLabel: 'Framing',
     eyebrow: 'Strategic framing',
     title: 'The work is stronger when strategy settles the message before production begins.',
@@ -115,6 +118,7 @@ export const portalSections: PortalSection[] = [
     variant: 'narrative',
     chapter: 'Chapter 02',
     mediaAlign: 'left',
+    orientation: 'portrait',
     progressLabel: 'Approach',
     eyebrow: 'Communication and video',
     title: 'Strategic video should sharpen positioning, hold attention, and move a decision.',
@@ -153,6 +157,7 @@ export const portalSections: PortalSection[] = [
     variant: 'closing',
     chapter: 'Chapter 03',
     mediaAlign: 'right',
+    orientation: 'portrait',
     progressLabel: 'Working Together',
     eyebrow: 'What the engagement produces',
     title: 'A structured engagement produces clarity, assets, and a cleaner path into execution.',

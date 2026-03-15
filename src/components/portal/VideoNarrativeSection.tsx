@@ -8,11 +8,15 @@ type VideoNarrativeSectionProps = {
 export function VideoNarrativeSection({ section }: VideoNarrativeSectionProps) {
   const alignClass =
     section.mediaAlign === 'left' ? 'portal-section--media-left' : 'portal-section--media-right';
+  const orientationClass =
+    section.orientation === 'portrait'
+      ? 'portal-section--portrait'
+      : 'portal-section--landscape';
 
   return (
     <section
       id={section.id}
-      className={`portal-section portal-section--split ${alignClass}`}
+      className={`portal-section portal-section--split ${alignClass} ${orientationClass}`}
       data-section-id={section.id}
       data-reveal
     >
@@ -42,6 +46,7 @@ export function VideoNarrativeSection({ section }: VideoNarrativeSectionProps) {
         title={section.videoTitle}
         description={section.videoDescription}
         overlayLines={section.overlayLines}
+        orientation={section.orientation}
       />
     </section>
   );

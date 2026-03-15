@@ -2,6 +2,7 @@
 
 - Portal copy and structure live in `src/data/portalContent.ts`.
 - The three chapter videos are centralized there as `VIDEO_1_URL`, `VIDEO_2_URL`, and `VIDEO_3_URL`.
+- Each chapter also has an `orientation` field so portrait Shorts and future landscape videos can use the right embed shell.
 - Standard YouTube links, `youtu.be` links, embed links, and Shorts links are all supported and converted to embed URLs automatically.
 - To replace the current videos, update those three constants in one place.
 - To switch to different YouTube links later, keep editing the same constants or change each chapter object's `videoUrl` in `portalSections`.

@@ -5,13 +5,28 @@ type VideoEmbedProps = {
   title: string;
   description: string;
   overlayLines: string[];
+  orientation: 'portrait' | 'landscape';
 };
 
-export function VideoEmbed({ url, title, description, overlayLines }: VideoEmbedProps) {
+export function VideoEmbed({
+  url,
+  title,
+  description,
+  overlayLines,
+  orientation,
+}: VideoEmbedProps) {
   const embedUrl = toYoutubeEmbedUrl(url);
+  const stageClass =
+    orientation === 'portrait' ? 'video-stage video-stage--portrait' : 'video-stage video-stage--landscape';
+  const cardClass =
+    orientation === 'portrait' ? 'video-card video-card--portrait' : 'video-card video-card--landscape';
+  const frameClass =
+    orientation === 'portrait'
+      ? 'video-card__frame video-card__frame--portrait'
+      : 'video-card__frame video-card__frame--landscape';
 
   return (
-    <div className="video-stage" data-reveal>
+    <div className={stageClass} data-reveal>
       <div className="video-stage__floating" aria-hidden="true">
         {overlayLines.map((line, index) => (
           <span className={`video-stage__chip video-stage__chip--${index + 1}`} key={line}>
@@ -20,8 +35,8 @@ export function VideoEmbed({ url, title, description, overlayLines }: VideoEmbed
         ))}
       </div>
 
-      <div className="video-card">
-        <div className="video-card__frame">
+      <div className={cardClass}>
+        <div className={frameClass}>
           {embedUrl ? (
             <iframe
               src={embedUrl}
