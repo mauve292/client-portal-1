@@ -13,11 +13,6 @@ export function CTASection({ cta }: CTASectionProps) {
       data-reveal
     >
       <div className="cta-panel">
-        <div className="portal-section__meta">
-          <span className="eyebrow">{cta.eyebrow}</span>
-          <span className="section-chapter">{cta.chapter}</span>
-        </div>
-
         <div className="cta-panel__body">
           <div className="portal-section__copy">
             <h2>{cta.title}</h2>

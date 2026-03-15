@@ -18,10 +18,6 @@ export function VideoNarrativeSection({ section }: VideoNarrativeSectionProps) {
     >
       <div className="chapter-grid">
         <div className="portal-section__copy">
-          <div className="portal-section__meta">
-            <span className="eyebrow">{section.eyebrow}</span>
-            <span className="section-chapter">{section.chapter}</span>
-          </div>
           <h2>{section.title}</h2>
           <p>{section.description}</p>
 
@@ -29,7 +25,6 @@ export function VideoNarrativeSection({ section }: VideoNarrativeSectionProps) {
             <div className="portal-card-row">
               {section.cards.map((card) => (
                 <article className="portal-mini-card" key={card.title}>
-                  {card.meta && <span className="portal-mini-card__meta">{card.meta}</span>}
                   <h3>{card.title}</h3>
                   <p>{card.body}</p>
                 </article>
@@ -43,7 +38,6 @@ export function VideoNarrativeSection({ section }: VideoNarrativeSectionProps) {
             url={section.videoUrl}
             title={section.videoTitle}
             description={section.videoDescription}
-            overlayLines={section.overlayLines}
             orientation={section.orientation}
           />
         </div>

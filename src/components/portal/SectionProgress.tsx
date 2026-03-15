@@ -8,22 +8,15 @@ type SectionProgressItem = {
 type SectionProgressProps = {
   items: SectionProgressItem[];
   activeSection: string;
-  slugPreview: string;
 };
 
 export function SectionProgress({
   items,
   activeSection,
-  slugPreview,
 }: SectionProgressProps) {
   return (
     <div className="portal-progress-shell">
       <div className="portal-progress-bar">
-        <div className="portal-progress-meta" aria-label="Portal identity">
-          <span>Ithaca</span>
-          <span>Ref. {slugPreview}</span>
-        </div>
-
         <nav className="portal-progress" aria-label="Section progress">
           {items.map((item, index) => {
             const isActive = item.id === activeSection;

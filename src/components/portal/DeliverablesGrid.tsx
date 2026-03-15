@@ -18,10 +18,6 @@ export function DeliverablesGrid({ section }: DeliverablesGridProps) {
     >
       <div className="chapter-grid chapter-grid--closing">
         <div className="portal-section__copy">
-          <div className="portal-section__meta">
-            <span className="eyebrow">{section.eyebrow}</span>
-            <span className="section-chapter">{section.chapter}</span>
-          </div>
           <h2>{section.title}</h2>
           <p>{section.description}</p>
 
@@ -41,7 +37,6 @@ export function DeliverablesGrid({ section }: DeliverablesGridProps) {
             <div className="deliverables-grid">
               {section.cards?.map((card) => (
                 <article className="deliverable-card" key={card.title}>
-                  {card.meta && <span className="deliverable-card__meta">{card.meta}</span>}
                   <h3>{card.title}</h3>
                   <p>{card.body}</p>
                 </article>
@@ -55,7 +50,6 @@ export function DeliverablesGrid({ section }: DeliverablesGridProps) {
             url={section.videoUrl}
             title={section.videoTitle}
             description={section.videoDescription}
-            overlayLines={section.overlayLines}
             orientation={section.orientation}
           />
         </div>

@@ -17,10 +17,6 @@ export function ProcessStrip({ section }: ProcessStripProps) {
       data-reveal
     >
       <div className="portal-section__copy">
-        <div className="portal-section__meta">
-          <span className="eyebrow">{section.eyebrow}</span>
-          <span className="section-chapter">{section.chapter}</span>
-        </div>
         <h2>{section.title}</h2>
         <p>{section.description}</p>
       </div>
@@ -42,7 +38,6 @@ export function ProcessStrip({ section }: ProcessStripProps) {
           url={section.videoUrl}
           title={section.videoTitle}
           description={section.videoDescription}
-          overlayLines={section.overlayLines}
           orientation={section.orientation}
         />
       </div>

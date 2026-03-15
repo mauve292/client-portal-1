@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CTASection } from '../components/portal/CTASection';
 import { DeliverablesGrid } from '../components/portal/DeliverablesGrid';
 import { HeroSection } from '../components/portal/HeroSection';
@@ -133,7 +133,7 @@ function usePortalMetadata() {
 export function ClientPortal({ slug }: ClientPortalProps) {
   usePortalMetadata();
   const activeSection = usePortalObservers();
-  const slugPreview = useMemo(() => slug.slice(0, 8).toUpperCase(), [slug]);
+  void slug;
 
   const sectionComponents = portalSections.map((section) => {
     if (section.variant === 'closing') {
@@ -149,7 +149,6 @@ export function ClientPortal({ slug }: ClientPortalProps) {
       <SectionProgress
         items={DISPLAY_SECTIONS}
         activeSection={activeSection}
-        slugPreview={slugPreview}
       />
       <HeroSection hero={portalHero} />
 

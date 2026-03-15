@@ -4,7 +4,6 @@ type VideoEmbedProps = {
   url: string;
   title: string;
   description: string;
-  overlayLines: string[];
   orientation: 'portrait' | 'landscape';
 };
 
@@ -12,7 +11,6 @@ export function VideoEmbed({
   url,
   title,
   description,
-  overlayLines,
   orientation,
 }: VideoEmbedProps) {
   const embedUrl = toYoutubeEmbedUrl(url);
@@ -25,14 +23,6 @@ export function VideoEmbed({
 
   return (
     <div className={stageClass} data-reveal>
-      <div className="video-stage__floating" aria-hidden="true">
-        {overlayLines.map((line, index) => (
-          <span className="video-stage__chip" key={`${index}-${line}`}>
-            {line}
-          </span>
-        ))}
-      </div>
-
       <div className={cardClass}>
         <div className={frameClass}>
           {embedUrl ? (
