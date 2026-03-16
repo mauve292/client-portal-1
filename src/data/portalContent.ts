@@ -1,65 +1,69 @@
-// Replace these three constants to update the chapter videos.
+// Replace these three constants to update the onboarding videos.
 // Standard YouTube links, youtu.be links, embed links, and Shorts links all work here.
 export const VIDEO_1_URL = 'https://youtube.com/shorts/4CqpEA_Vb9w?si=PiCrAIEN97Y-T6fq';
 export const VIDEO_2_URL = 'https://youtube.com/shorts/5jj5bsJgzf4?si=LVIf4HDsf5ghv_KL';
 export const VIDEO_3_URL = 'https://youtube.com/shorts/o5YY6NuGHDY?si=H1qZTf3thh0C-9Fo';
 
-export type Language = 'el' | 'en';
-
-type PortalCard = {
+type ActivationStep = {
   title: string;
   body: string;
 };
 
-type PortalStep = {
-  title: string;
-  body: string;
-};
-
-export type PortalSection = {
+type FormField = {
   id: string;
-  variant: 'narrative' | 'closing';
-  progressLabel: string;
-  mediaAlign?: 'left' | 'right';
-  orientation: 'portrait' | 'landscape';
+  label: string;
+  placeholder: string;
+  type: 'text' | 'email' | 'tel' | 'url' | 'textarea';
+};
+
+export type PortalVideoSection = {
+  id: string;
+  navLabel: string;
   title: string;
   description: string;
   videoUrl: string;
   videoTitle: string;
   videoDescription: string;
-  cards?: PortalCard[];
-  steps?: PortalStep[];
+  mediaAlign?: 'left' | 'right';
+  orientation: 'portrait' | 'landscape';
 };
 
 export type HeroContent = {
   title: string;
   description: string;
-  introLine: string;
-  frameTitle: string;
-  frameSummary: string;
-  notes: PortalCard[];
+  lead: string;
+  summaryTitle: string;
+  summaryBody: string;
+  summaryHighlights: string[];
 };
 
-export type CtaContent = {
-  id: string;
-  progressLabel: string;
+export type ActivationPanelContent = {
   title: string;
   description: string;
-  primaryAction: {
-    label: string;
-    href: string;
-  };
-  secondaryAction: {
-    label: string;
-    href: string;
-  };
+  steps: ActivationStep[];
+  note: string;
+};
+
+export type TransitionContent = {
+  id: string;
+  title: string;
+  description: string;
+};
+
+export type FormContent = {
+  id: string;
+  navLabel: string;
+  title: string;
+  description: string;
+  note: string;
+  fields: FormField[];
+  submitLabel: string;
 };
 
 export type PortalUiContent = {
   navigationAriaLabel: string;
   navigationJumpLabel: string;
-  openingLabel: string;
-  languageToggleLabel: string;
+  introLabel: string;
   videoUnavailable: string;
   openOnYoutube: string;
   videoTitlePrefix: string;
@@ -72,311 +76,154 @@ export type PortalContent = {
   };
   ui: PortalUiContent;
   hero: HeroContent;
-  sections: PortalSection[];
-  cta: CtaContent;
+  activationPanel: ActivationPanelContent;
+  sections: PortalVideoSection[];
+  transition: TransitionContent;
+  form: FormContent;
 };
 
-function createEnglishSections(): PortalSection[] {
-  return [
-    {
-      id: 'framing',
-      variant: 'narrative',
-      mediaAlign: 'right',
-      orientation: 'portrait',
-      progressLabel: 'Framing',
-      title: 'The work is stronger when strategy settles the message before production begins.',
-      description:
-        'Ithaca starts by clarifying the market context, the audience perspective, and the decision the communication needs to support. Production sharpens when the message already knows its role.',
-      videoUrl: VIDEO_1_URL,
-      videoTitle: 'Strategic framing and the Ithaca point of view',
-      videoDescription:
-        'An opening chapter on how Ithaca thinks before scripts, shoots, and rollout decisions are made.',
-    },
-    {
-      id: 'approach',
-      variant: 'narrative',
-      mediaAlign: 'left',
-      orientation: 'portrait',
-      progressLabel: 'Approach',
-      title: 'Strategic video should sharpen positioning, hold attention, and move a decision.',
-      description:
-        'The aim is not simply to publish more. It is to shape market-facing communication with control: stronger hooks, clearer narrative movement, and edits built around the next commercial step.',
-      videoUrl: VIDEO_2_URL,
-      videoTitle: 'Strategic communication and video approach',
-      videoDescription:
-        'The core chapter on positioning, narrative clarity, hooks, direction, and market-facing communication.',
-      cards: [
-        {
-          title: 'Positioning',
-          body: 'Clarify what the market should understand about you before creative execution takes over.',
-        },
-        {
-          title: 'Narrative clarity',
-          body: 'Structure the message so the viewer never has to work to decode what matters.',
-        },
-        {
-          title: 'Hooks',
-          body: 'Open with immediate relevance so attention is earned at the right moment.',
-        },
-        {
-          title: 'Direction in the edit',
-          body: 'Shape pace, emphasis, and sequence around the commercial decision the work is meant to support.',
-        },
-      ],
-    },
-    {
-      id: 'working-together',
-      variant: 'closing',
-      mediaAlign: 'right',
-      orientation: 'portrait',
-      progressLabel: 'Working Together',
-      title: 'A structured engagement produces clarity, assets, and a cleaner path into execution.',
-      description:
-        'The final chapter closes the loop: what you receive, how the collaboration moves, and why the process is designed to keep production calm and decisions easier to make.',
-      videoUrl: VIDEO_3_URL,
-      videoTitle: 'Working together and next-step orientation',
-      videoDescription:
-        'A closing chapter on deliverables, collaboration structure, and how the work moves naturally toward planning.',
-      steps: [
-        {
-          title: 'Discovery',
-          body: 'Clarify priorities, audience context, and where current communication is underperforming.',
-        },
-        {
-          title: 'Direction',
-          body: 'Translate that clarity into a focused creative and messaging direction.',
-        },
-        {
-          title: 'Production',
-          body: 'Capture and shape the work around the message instead of producing excess.',
-        },
-        {
-          title: 'Refinement',
-          body: 'Tighten outputs, versions, and rollout thinking around the final use case.',
-        },
-      ],
-      cards: [
-        {
-          title: 'Creative direction',
-          body: 'A clear point of view on what the work should communicate and how it should land.',
-        },
-        {
-          title: 'Scripting and structure',
-          body: 'Message architecture, speaking flow, and narrative control before production starts.',
-        },
-        {
-          title: 'Production planning',
-          body: 'A practical approach to capture, priorities, and decision-making during production.',
-        },
-        {
-          title: 'Edits and versions',
-          body: 'Refined cuts and usable adaptations for different placements or stages of the decision journey.',
-        },
-      ],
-    },
-  ];
-}
-
-function createGreekSections(): PortalSection[] {
-  return [
-    {
-      id: 'framing',
-      variant: 'narrative',
-      mediaAlign: 'right',
-      orientation: 'portrait',
-      progressLabel: 'Πλαίσιο',
-      title: 'Το αποτέλεσμα γίνεται ισχυρότερο όταν η στρατηγική ξεκαθαρίζει το μήνυμα πριν ξεκινήσει η παραγωγή.',
-      description:
-        'Η Ithaca ξεκινά από το πλαίσιο της αγοράς, την οπτική του κοινού και την απόφαση που πρέπει να υποστηρίξει η επικοινωνία. Όταν ο ρόλος του μηνύματος έχει οριστεί σωστά, η παραγωγή γίνεται πιο ακριβής.',
-      videoUrl: VIDEO_1_URL,
-      videoTitle: 'Στρατηγικό πλαίσιο και οπτική της Ithaca',
-      videoDescription:
-        'Η πρώτη ενότητα δείχνει πώς σκέφτεται η Ithaca πριν από το script, το γύρισμα και τις αποφάσεις διάθεσης.',
-    },
-    {
-      id: 'approach',
-      variant: 'narrative',
-      mediaAlign: 'left',
-      orientation: 'portrait',
-      progressLabel: 'Προσέγγιση',
-      title: 'Το στρατηγικό video πρέπει να ενισχύει το positioning, να κρατά την προσοχή και να οδηγεί σε απόφαση.',
-      description:
-        'Ο στόχος δεν είναι απλώς να παραχθεί περισσότερο περιεχόμενο. Είναι να οργανωθεί η επικοινωνία προς την αγορά με έλεγχο: ισχυρότερα hooks, καθαρότερη αφηγηματική ροή και edits που υπηρετούν το επόμενο εμπορικό βήμα.',
-      videoUrl: VIDEO_2_URL,
-      videoTitle: 'Στρατηγική επικοινωνία και προσέγγιση video',
-      videoDescription:
-        'Η βασική ενότητα για positioning, αφηγηματική σαφήνεια, hooks, κατεύθυνση και επικοινωνία προς την αγορά.',
-      cards: [
-        {
-          title: 'Positioning',
-          body: 'Ξεκαθαρίζουμε τι πρέπει να καταλάβει η αγορά για εσάς πριν κυριαρχήσει η δημιουργική εκτέλεση.',
-        },
-        {
-          title: 'Αφηγηματική σαφήνεια',
-          body: 'Δομούμε το μήνυμα έτσι ώστε ο θεατής να μη χρειάζεται να αποκωδικοποιήσει τι έχει σημασία.',
-        },
-        {
-          title: 'Hooks',
-          body: 'Ανοίγουμε με άμεση συνάφεια, ώστε η προσοχή να κερδίζεται στο σωστό σημείο.',
-        },
-        {
-          title: 'Κατεύθυνση στο edit',
-          body: 'Ρυθμίζουμε pace, έμφαση και ακολουθία γύρω από την εμπορική απόφαση που πρέπει να υποστηρίξει το έργο.',
-        },
-      ],
-    },
-    {
-      id: 'working-together',
-      variant: 'closing',
-      mediaAlign: 'right',
-      orientation: 'portrait',
-      progressLabel: 'Συνεργασία',
-      title: 'Μια δομημένη συνεργασία παράγει σαφήνεια, παραδοτέα και καθαρότερη μετάβαση στην εκτέλεση.',
-      description:
-        'Η τελική ενότητα κλείνει τον κύκλο: τι λαμβάνετε, πώς κινείται η συνεργασία και γιατί η διαδικασία είναι οργανωμένη ώστε η παραγωγή να παραμένει ήρεμη και οι αποφάσεις πιο καθαρές.',
-      videoUrl: VIDEO_3_URL,
-      videoTitle: 'Συνεργασία και επόμενος προσανατολισμός',
-      videoDescription:
-        'Η τελευταία ενότητα για τα παραδοτέα, τη δομή της συνεργασίας και τη φυσική μετάβαση στον σχεδιασμό.',
-      steps: [
-        {
-          title: 'Ανίχνευση',
-          body: 'Ξεκαθαρίζουμε προτεραιότητες, πλαίσιο κοινού και πού η τρέχουσα επικοινωνία υπολείπεται.',
-        },
-        {
-          title: 'Κατεύθυνση',
-          body: 'Μεταφράζουμε αυτή τη σαφήνεια σε συγκεκριμένη δημιουργική και μηνυματική κατεύθυνση.',
-        },
-        {
-          title: 'Παραγωγή',
-          body: 'Καταγράφουμε και διαμορφώνουμε το υλικό γύρω από το μήνυμα, όχι γύρω από περιττή παραγωγή.',
-        },
-        {
-          title: 'Βελτίωση',
-          body: 'Οριστικοποιούμε outputs, versions και rollout thinking με βάση το τελικό use case.',
-        },
-      ],
-      cards: [
-        {
-          title: 'Δημιουργική κατεύθυνση',
-          body: 'Καθαρή οπτική για το τι πρέπει να επικοινωνεί το έργο και πώς πρέπει να προσγειώνεται.',
-        },
-        {
-          title: 'Script και δομή',
-          body: 'Αρχιτεκτονική μηνύματος, ροή λόγου και αφηγηματικός έλεγχος πριν ξεκινήσει η παραγωγή.',
-        },
-        {
-          title: 'Σχεδιασμός παραγωγής',
-          body: 'Πρακτική προσέγγιση για capture, προτεραιότητες και λήψη αποφάσεων κατά την παραγωγή.',
-        },
-        {
-          title: 'Edits και versions',
-          body: 'Επεξεργασμένα cuts και χρήσιμες προσαρμογές για διαφορετικές τοποθετήσεις ή στάδια της απόφασης.',
-        },
-      ],
-    },
-  ];
-}
-
-export const portalContentByLanguage: Record<Language, PortalContent> = {
-  el: {
-    meta: {
-      title: 'Ithaca | Ιδιωτικό Client Portal',
-      description: 'Ιδιωτικό portal της Ithaca για στρατηγική marketing, positioning και video direction.',
-    },
-    ui: {
-      navigationAriaLabel: 'Πλοήγηση ενοτήτων',
-      navigationJumpLabel: 'Μετάβαση στην ενότητα',
-      openingLabel: 'Εισαγωγή',
-      languageToggleLabel: 'Επιλογή γλώσσας',
-      videoUnavailable: 'Το video δεν είναι διαθέσιμο σε ενσωματωμένη προβολή.',
-      openOnYoutube: 'Άνοιγμα στο YouTube',
-      videoTitlePrefix: 'Video portal της Ithaca',
-    },
-    hero: {
-      title: 'Μια ιδιωτική παρουσίαση της Ithaca για στρατηγική marketing και κατεύθυνση video.',
-      description:
-        'Αυτό το portal είναι μια καθοδηγούμενη παρουσίαση για πραγματική πελατειακή συζήτηση. Δείχνει πώς η Ithaca μετατρέπει τη στρατηγική σαφήνεια, τη δομή του μηνύματος και τη στοχευμένη παραγωγή σε video με ουσιαστική εμπορική αξία.',
-      introLine: 'Διαμορφωμένο ιδιωτικά, με positioning, επικοινωνία και εκτέλεση ενταγμένα στην ίδια στρατηγική λογική.',
-      frameTitle: 'Τι δείχνει αυτή η παρουσίαση',
-      frameSummary:
-        'Οι τρεις ενότητες παρουσιάζουν πώς η Ithaca ορίζει το πλαίσιο, διαμορφώνει την επικοινωνία και οργανώνει τη συνεργασία.',
-      notes: [
-        {
-          title: 'Γιατί υπάρχει αυτή η παρουσίαση',
-          body: 'Για να γίνει ορατή η στρατηγική λογική πριν αφιερωθεί χρόνος σε επιλογές παραγωγής, κύκλους edits και αποφάσεις rollout.',
-        },
-        {
-          title: 'Τι στοχεύει να ξεκαθαρίσει',
-          body: 'Να δημιουργήσει βεβαιότητα γύρω από την κατεύθυνση, τις επικοινωνιακές προτεραιότητες και το τι παράγει στην πράξη μια καλά δομημένη συνεργασία.',
-        },
-      ],
-    },
-    sections: createGreekSections(),
-    cta: {
-      id: 'cta',
-      progressLabel: 'Επόμενο βήμα',
-      title: 'Αν η κατεύθυνση είναι σωστή, το επόμενο βήμα είναι να περάσουμε στον σχεδιασμό με καθαρό πλαίσιο.',
-      description:
-        'Επιλέξτε την επόμενη κίνηση που ταιριάζει στη συζήτηση. Στόχος δεν είναι η πίεση, αλλά η καθαρή μετάβαση από την αξιολόγηση στο scope, το timing και την προετοιμασία.',
-      primaryAction: {
-        label: 'Περνάμε στον σχεδιασμό',
-        href: 'mailto:team@ithaca.agency?subject=%CE%A3%CF%85%CE%BD%CE%AD%CF%87%CE%B5%CE%B9%CE%B1%20%CF%83%CF%84%CE%BF%CE%BD%20%CF%83%CF%87%CE%B5%CE%B4%CE%B9%CE%B1%CF%83%CE%BC%CF%8C',
-      },
-      secondaryAction: {
-        label: 'Επιστροφή στην προσέγγιση',
-        href: '#approach',
-      },
-    },
+export const portalContent: PortalContent = {
+  meta: {
+    title: 'Ithaca | Client Onboarding Portal',
+    description: 'Onboarding portal της Ithaca Agency με 3 βίντεο, panel ενεργοποίησης και φόρμα trial.',
   },
-  en: {
-    meta: {
-      title: 'Ithaca Agency | Private Client Portal',
-      description: 'A private Ithaca portal for strategic marketing direction, positioning, and video planning.',
-    },
-    ui: {
-      navigationAriaLabel: 'Section progress',
-      navigationJumpLabel: 'Jump to',
-      openingLabel: 'Opening',
-      languageToggleLabel: 'Select language',
-      videoUnavailable: 'Video unavailable in embed view.',
-      openOnYoutube: 'Open on YouTube',
-      videoTitlePrefix: 'Ithaca portal video',
-    },
-    hero: {
-      title: 'A private Ithaca walkthrough for strategic marketing and video direction.',
-      description:
-        'This portal is a guided review prepared for a real client conversation. It shows how Ithaca uses strategic clarity, message structure, and thoughtful production to make video more commercially useful.',
-      introLine: 'Prepared privately, with positioning, communication, and execution considered as one system.',
-      frameTitle: 'What this walkthrough is for',
-      frameSummary:
-        'The three chapters show how Ithaca frames the work, shapes the communication, and structures the collaboration.',
-      notes: [
-        {
-          title: 'Why this review exists',
-          body: 'To make the strategic logic visible before time is committed to production choices, edit rounds, and rollout decisions.',
-        },
-        {
-          title: 'What it is meant to clarify',
-          body: 'Create confidence around direction, communication priorities, and what a well-structured engagement would actually produce.',
-        },
-      ],
-    },
-    sections: createEnglishSections(),
-    cta: {
-      id: 'cta',
-      progressLabel: 'Next Step',
-      title: 'If the direction feels aligned, the next step is to move into planning with clarity.',
-      description:
-        'Choose the next action that fits the conversation. The aim is not pressure. It is a clear move from review into scope, timing, and preparation.',
-      primaryAction: {
-        label: 'Move into planning',
-        href: 'mailto:team@ithaca.agency?subject=Continue%20to%20planning',
+  ui: {
+    navigationAriaLabel: 'Πλοήγηση portal',
+    navigationJumpLabel: 'Μετάβαση στην ενότητα',
+    introLabel: 'Εισαγωγή',
+    videoUnavailable: 'Το βίντεο δεν είναι διαθέσιμο σε ενσωματωμένη προβολή.',
+    openOnYoutube: 'Άνοιγμα στο YouTube',
+    videoTitlePrefix: 'Βίντεο onboarding της Ithaca',
+  },
+  hero: {
+    title: 'Καλώς ήρθες στην Ιθάκη σου!',
+    description:
+      'Εδώ ξεκινάει το ταξίδι για την ψηφιακή αναβάθμιση της επιχείρησής σου.',
+    lead:
+      'Πριν βουτήξουμε στα βαθιά, ο συνεργάτης μας έχει ετοιμάσει 3 σύντομα βίντεο με πολύτιμα tips για την επιχείρησή σου. Δες τα για να καταλάβεις τη φιλοσοφία μας και, παράλληλα, ακολούθησε τα βήματα στο panel για να ενεργοποιήσεις 15 ημέρες δωρεάν δοκιμής μαζί μας.',
+    summaryTitle: 'Τι περιλαμβάνει το portal',
+    summaryBody:
+      'Μια σύντομη διαδρομή γνωριμίας με 3 βίντεο, ξεκάθαρα βήματα ενεργοποίησης και μία τελική φόρμα για το free trial.',
+    summaryHighlights: [
+      '3 σύντομα βίντεο με πρακτικά tips',
+      'Ορατό panel ενεργοποίησης 15 ημερών free trial',
+      'Τελική φόρμα για να προχωρήσει η επικοινωνία',
+    ],
+  },
+  activationPanel: {
+    title: 'Panel ενεργοποίησης',
+    description: 'Ακολούθησε τα παρακάτω βήματα για να προχωρήσει η δωρεάν δοκιμή σου με απλό και καθαρό τρόπο.',
+    steps: [
+      {
+        title: 'Βήμα 1: Δες τα 3 βίντεο',
+        body: 'Ξεκίνα με το περιεχόμενο για να πάρεις μια πρώτη εικόνα για τον τρόπο που δουλεύουμε.',
       },
-      secondaryAction: {
-        label: 'Return to the approach',
-        href: '#approach',
+      {
+        title: 'Βήμα 2: Κατανόησε τη φιλοσοφία μας',
+        body: 'Κράτα τα βασικά σημεία που θέλεις να δεις να εφαρμόζονται και στην επιχείρησή σου.',
       },
+      {
+        title: 'Βήμα 3: Συμπλήρωσε τη φόρμα',
+        body: 'Άφησε τα στοιχεία σου και μια σύντομη εικόνα για την επιχείρηση ή τις ανάγκες σου.',
+      },
+      {
+        title: 'Βήμα 4: Ενεργοποίηση 15 ημερών free trial',
+        body: 'Ένας εκπρόσωπός μας θα επικοινωνήσει μαζί σου για να ξεκινήσει το trial χωρίς δέσμευση.',
+      },
+    ],
+    note: 'Μετά τις 15 ημέρες μπορείς να διακόψεις την υπηρεσία χωρίς κάποια χρέωση.',
+  },
+  sections: [
+    {
+      id: 'video-1',
+      navLabel: 'Βίντεο 1',
+      title: 'Μαθαίνοντας τη σημαντικότητα του “short-form video”',
+      description:
+        'Στο πρώτο βίντεο, ο creator μοιράζεται μαζί σου tips για το πώς η σωστή προσέγγιση αλλάζει τα δεδομένα και τι σημαίνει «ψυχολογία σύγχρονου καταναλωτή». Στην Ithaca Agency, εφαρμόζουμε ακριβώς αυτή τη λογική σε κάθε project.',
+      videoUrl: VIDEO_1_URL,
+      videoTitle: 'Βίντεο 1',
+      videoDescription: 'Tips για τη σωστή προσέγγιση και την ψυχολογία του σύγχρονου καταναλωτή.',
+      mediaAlign: 'right',
+      orientation: 'portrait',
     },
+    {
+      id: 'video-2',
+      navLabel: 'Βίντεο 2',
+      title: 'Ο μαραθώνιος του marketing.',
+      description:
+        'Ένα σύντομο βίντεο που βάζει το marketing στη σωστή του διάσταση: ως μια διαδρομή συνέπειας, υπομονής και σωστού ρυθμού.',
+      videoUrl: VIDEO_2_URL,
+      videoTitle: 'Βίντεο 2',
+      videoDescription: 'Μια καθαρή ματιά στη διάρκεια, τη συνέπεια και το σωστό momentum.',
+      mediaAlign: 'left',
+      orientation: 'portrait',
+    },
+    {
+      id: 'video-3',
+      navLabel: 'Βίντεο 3',
+      title: 'Από τη θεωρία στην πράξη.',
+      description:
+        'Το τρίτο βίντεο κλείνει τον κύκλο και δείχνει πώς η θεωρία αποκτά αξία μόνο όταν εφαρμόζεται με σαφή βήματα και σωστή καθοδήγηση.',
+      videoUrl: VIDEO_3_URL,
+      videoTitle: 'Βίντεο 3',
+      videoDescription: 'Η μετάβαση από τα tips σε πραγματική εφαρμογή για την επιχείρησή σου.',
+      mediaAlign: 'right',
+      orientation: 'portrait',
+    },
+  ],
+  transition: {
+    id: 'trial',
+    title: 'Τώρα είναι η σειρά μας να δουλέψουμε για εσένα.',
+    description:
+      'Ελπίζουμε τα tips από τα βίντεο να σου έδωσαν μια πρώτη εικόνα για το πώς σκεφτόμαστε στην Ithaca Agency. Η θεωρία, όμως, έχει αξία μόνο όταν γίνεται πράξη.',
+  },
+  form: {
+    id: 'trial-form',
+    navLabel: 'Trial / Φόρμα',
+    title:
+      'Είμαστε έτοιμοι να αναλάβουμε τη στρατηγική σου, να εφαρμόσουμε τα σωστά hooks και να βελτιστοποιήσουμε την ψηφιακή σου παρουσία. Το μόνο που χωρίζει την επιχείρησή σου από το επόμενο επίπεδο είναι η συμπλήρωση της παρακάτω φόρμας.',
+    description:
+      'Μόλις συμπληρώσεις τη φόρμα, ένας εκπρόσωπός μας θα έρθει σε επικοινωνία μαζί σου για να ενεργοποιηθεί το δωρεάν trial 15 ημερών.',
+    note:
+      'Μετά τις 15 ημέρες, μπορείς να διακόψεις την υπηρεσία χωρίς κάποια χρέωση.',
+    fields: [
+      {
+        id: 'full-name',
+        label: 'Ονοματεπώνυμο',
+        placeholder: 'Γράψε το ονοματεπώνυμό σου',
+        type: 'text',
+      },
+      {
+        id: 'business',
+        label: 'Επιχείρηση',
+        placeholder: 'Όνομα επιχείρησης',
+        type: 'text',
+      },
+      {
+        id: 'email',
+        label: 'Email',
+        placeholder: 'name@company.gr',
+        type: 'email',
+      },
+      {
+        id: 'phone',
+        label: 'Τηλέφωνο',
+        placeholder: '69XXXXXXXX',
+        type: 'tel',
+      },
+      {
+        id: 'website',
+        label: 'Ιστοσελίδα / Social link',
+        placeholder: 'https://',
+        type: 'url',
+      },
+      {
+        id: 'message',
+        label: 'Σύντομο μήνυμα',
+        placeholder: 'Πες μας λίγα λόγια για την επιχείρησή σου και τι θέλεις να πετύχεις.',
+        type: 'textarea',
+      },
+    ],
+    submitLabel: 'Ζητώ ενεργοποίηση 15 ημερών',
   },
 };

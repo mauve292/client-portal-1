@@ -1,8 +1,8 @@
-import type { PortalSection, PortalUiContent } from '../../data/portalContent';
+import type { PortalUiContent, PortalVideoSection } from '../../data/portalContent';
 import { VideoEmbed } from './VideoEmbed';
 
 type VideoNarrativeSectionProps = {
-  section: PortalSection;
+  section: PortalVideoSection;
   videoUi: Pick<PortalUiContent, 'openOnYoutube' | 'videoTitlePrefix' | 'videoUnavailable'>;
 };
 
@@ -20,22 +20,8 @@ export function VideoNarrativeSection({ section, videoUi }: VideoNarrativeSectio
       <div className="chapter-panel">
         <div className="chapter-grid">
           <div className="portal-section__copy">
-            <div className="portal-section__header">
-              <p className="portal-section__eyebrow">{section.progressLabel}</p>
-              <h2>{section.title}</h2>
-            </div>
+            <h2>{section.title}</h2>
             <p className="portal-section__description">{section.description}</p>
-
-            {section.cards && (
-              <div className="portal-card-row">
-                {section.cards.map((card) => (
-                  <article className="portal-mini-card" key={card.title}>
-                    <h3>{card.title}</h3>
-                    <p>{card.body}</p>
-                  </article>
-                ))}
-              </div>
-            )}
           </div>
 
           <div className="chapter-media">

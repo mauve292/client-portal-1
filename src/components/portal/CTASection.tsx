@@ -1,7 +1,7 @@
-import type { CtaContent } from '../../data/portalContent';
+import type { TransitionContent } from '../../data/portalContent';
 
 type CTASectionProps = {
-  cta: CtaContent;
+  cta: TransitionContent;
 };
 
 export function CTASection({ cta }: CTASectionProps) {
@@ -13,24 +13,10 @@ export function CTASection({ cta }: CTASectionProps) {
       data-reveal
     >
       <div className="cta-panel">
-        <div className="cta-panel__body">
+        <div className="cta-panel__body cta-panel__body--transition">
           <div className="portal-section__copy portal-section__copy--cta">
-            <div className="portal-section__header">
-              <p className="portal-section__eyebrow">{cta.progressLabel}</p>
-              <h2>{cta.title}</h2>
-            </div>
+            <h2>{cta.title}</h2>
             <p className="portal-section__description">{cta.description}</p>
-          </div>
-
-          <div className="cta-panel__aside">
-            <div className="cta-actions">
-              <a className="button button--primary" href={cta.primaryAction.href}>
-                {cta.primaryAction.label}
-              </a>
-              <a className="button button--secondary" href={cta.secondaryAction.href}>
-                {cta.secondaryAction.label}
-              </a>
-            </div>
           </div>
         </div>
       </div>

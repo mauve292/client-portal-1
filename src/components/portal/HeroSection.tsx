@@ -10,27 +10,26 @@ export function HeroSection({ hero }: HeroSectionProps) {
       <div className="hero-panel">
         <div className="hero-grid">
           <div className="hero-main">
-            <p className="hero-section__context">{hero.introLine}</p>
+            <p className="hero-section__context">{hero.description}</p>
             <div className="hero-main__copy">
               <h1>{hero.title}</h1>
-              <p className="hero-section__lede">{hero.description}</p>
+              <p className="hero-section__lede">{hero.lead}</p>
             </div>
           </div>
 
           <aside className="hero-brief">
             <div className="hero-brief__intro">
-              <p className="hero-brief__eyebrow">{hero.frameTitle}</p>
-              <p className="hero-brief__summary">{hero.frameSummary}</p>
+              <p className="hero-brief__eyebrow">{hero.summaryTitle}</p>
+              <p className="hero-brief__summary">{hero.summaryBody}</p>
             </div>
 
-            <div className="hero-brief__notes">
-              {hero.notes.map((note) => (
-                <article className="hero-note" key={note.title}>
-                  <h3>{note.title}</h3>
-                  <p>{note.body}</p>
-                </article>
+            <ul className="hero-brief__highlights">
+              {hero.summaryHighlights.map((item) => (
+                <li className="hero-note" key={item}>
+                  <p>{item}</p>
+                </li>
               ))}
-            </div>
+            </ul>
           </aside>
         </div>
       </div>

@@ -1,5 +1,3 @@
-import type { Language } from '../../data/portalContent';
-
 type SectionProgressItem = {
   id: string;
   targetId: string;
@@ -10,21 +8,15 @@ type SectionProgressItem = {
 type SectionProgressProps = {
   items: SectionProgressItem[];
   activeSection: string;
-  language: Language;
-  onLanguageChange: (language: Language) => void;
   navigationAriaLabel: string;
   navigationJumpLabel: string;
-  languageToggleLabel: string;
 };
 
 export function SectionProgress({
   items,
   activeSection,
-  language,
-  onLanguageChange,
   navigationAriaLabel,
   navigationJumpLabel,
-  languageToggleLabel,
 }: SectionProgressProps) {
   return (
     <div className="portal-progress-shell">
@@ -47,25 +39,6 @@ export function SectionProgress({
             );
           })}
         </nav>
-
-        <div className="portal-language-toggle" role="group" aria-label={languageToggleLabel}>
-          <button
-            type="button"
-            className={language === 'el' ? 'portal-language-toggle__button is-active' : 'portal-language-toggle__button'}
-            onClick={() => onLanguageChange('el')}
-            aria-pressed={language === 'el'}
-          >
-            GR
-          </button>
-          <button
-            type="button"
-            className={language === 'en' ? 'portal-language-toggle__button is-active' : 'portal-language-toggle__button'}
-            onClick={() => onLanguageChange('en')}
-            aria-pressed={language === 'en'}
-          >
-            EN
-          </button>
-        </div>
       </div>
     </div>
   );
