@@ -16,7 +16,11 @@ export function FormSection({ form }: FormSectionProps) {
         <div className="form-panel__intro">
           <h2>{form.title}</h2>
           <p>{form.description}</p>
-          <p className="form-panel__note">{form.note}</p>
+          <p className="form-panel__note">
+            {form.noteLead}
+            <strong>{form.noteHighlight}</strong>
+            {form.noteTail}
+          </p>
         </div>
 
         <form className="trial-form" onSubmit={(event) => event.preventDefault()}>
