@@ -7,24 +7,21 @@ type VideoNarrativeSectionProps = {
 };
 
 export function VideoNarrativeSection({ section, videoUi }: VideoNarrativeSectionProps) {
-  const alignClass =
-    section.mediaAlign === 'left' ? 'portal-section--media-left' : 'portal-section--media-right';
+  const isMediaLeft = section.mediaAlign === 'left';
+  const alignClass = isMediaLeft ? 'portal-section--media-left' : 'portal-section--media-right';
+  const copyRevealClass = isMediaLeft
+    ? 'chapter-copy-shell chapter-copy-shell--from-left'
+    : 'chapter-copy-shell chapter-copy-shell--from-right';
 
   return (
     <section
       id={section.id}
       className={`portal-section chapter-section ${alignClass}`}
       data-section-id={section.id}
-      data-reveal
     >
       <div className="chapter-panel">
         <div className="chapter-grid">
-          <div className="portal-section__copy">
-            <h2>{section.title}</h2>
-            <p className="portal-section__description">{section.description}</p>
-          </div>
-
-          <div className="chapter-media">
+          <div className="chapter-media" data-reveal>
             <div className="chapter-media__panel">
               <VideoEmbed
                 url={section.videoUrl}
@@ -32,6 +29,13 @@ export function VideoNarrativeSection({ section, videoUi }: VideoNarrativeSectio
                 orientation={section.orientation}
                 ui={videoUi}
               />
+            </div>
+          </div>
+
+          <div className={copyRevealClass} data-reveal>
+            <div className="portal-section__copy">
+              <h2>{section.title}</h2>
+              <p className="portal-section__description">{section.description}</p>
             </div>
           </div>
         </div>

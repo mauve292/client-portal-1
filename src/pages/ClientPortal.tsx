@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react';
-import { CTASection } from '../components/portal/CTASection';
 import { FormSection } from '../components/portal/FormSection';
 import { HeroSection } from '../components/portal/HeroSection';
 import { PortalShell } from '../components/portal/PortalShell';
@@ -12,8 +11,6 @@ type ClientPortalProps = {
   slug: string;
 };
 
-const CLOSE_STEP_ID = 'close';
-
 type DisplaySection = {
   id: string;
   targetId: string;
@@ -21,15 +18,7 @@ type DisplaySection = {
   title: string;
 };
 
-function normalizeProgressSection(sectionId: string, closingSectionId: string, formId: string): string {
-  if (sectionId === closingSectionId || sectionId === formId) {
-    return CLOSE_STEP_ID;
-  }
-
-  return sectionId;
-}
-
-function usePortalObservers(displaySections: DisplaySection[], closingSectionId: string, formId: string) {
+function usePortalObservers(displaySections: DisplaySection[]) {
   const [activeSection, setActiveSection] = useState(displaySections[0]?.id ?? 'hero');
 
   useEffect(() => {
@@ -54,13 +43,7 @@ function usePortalObservers(displaySections: DisplaySection[], closingSectionId:
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
         if (visibleEntry?.target instanceof HTMLElement) {
-          setActiveSection(
-            normalizeProgressSection(
-              visibleEntry.target.dataset.sectionId ?? displaySections[0]?.id ?? 'hero',
-              closingSectionId,
-              formId,
-            ),
-          );
+          setActiveSection(visibleEntry.target.dataset.sectionId ?? displaySections[0]?.id ?? 'hero');
         }
       },
       {
@@ -87,7 +70,7 @@ function usePortalObservers(displaySections: DisplaySection[], closingSectionId:
       revealObserver.disconnect();
       sectionObserver.disconnect();
     };
-  }, [closingSectionId, displaySections, formId]);
+  }, [displaySections]);
 
   return activeSection;
 }
@@ -144,8 +127,8 @@ export function ClientPortal({ slug }: ClientPortalProps) {
         title: portalContent.sections[2].title,
       },
       {
-        id: CLOSE_STEP_ID,
-        targetId: portalContent.transition.id,
+        id: portalContent.form.id,
+        targetId: portalContent.form.id,
         label: portalContent.form.navLabel,
         title: portalContent.form.title,
       },
@@ -154,11 +137,7 @@ export function ClientPortal({ slug }: ClientPortalProps) {
   );
 
   usePortalMetadata(portalContent.meta.title, portalContent.meta.description);
-  const activeSection = usePortalObservers(
-    displaySections,
-    portalContent.transition.id,
-    portalContent.form.id,
-  );
+  const activeSection = usePortalObservers(displaySections);
 
   const sectionComponents = portalContent.sections.map((section) => (
     <VideoNarrativeSection key={section.id} section={section} videoUi={portalContent.ui} />
@@ -167,6 +146,12 @@ export function ClientPortal({ slug }: ClientPortalProps) {
   return (
     <PortalShell>
       <SoftBackground />
+      <header className="portal-head">
+        <div className="portal-head__inner">
+          <h1 className="portal-page-title">Ithaca&apos;s Client Portal</h1>
+        </div>
+      </header>
+
       <SectionProgress
         items={displaySections}
         activeSection={activeSection}
@@ -177,8 +162,7 @@ export function ClientPortal({ slug }: ClientPortalProps) {
 
       <main className="portal-main">
         {sectionComponents}
-        <CTASection cta={portalContent.transition} />
-        <FormSection form={portalContent.form} />
+        <FormSection form={portalContent.form} transition={portalContent.transition} />
       </main>
     </PortalShell>
   );

@@ -6,20 +6,19 @@ type HeroSectionProps = {
 
 export function HeroSection({ hero }: HeroSectionProps) {
   return (
-    <header className="hero-section" id="hero" data-section-id="hero" data-reveal>
+    <section className="hero-section" id="hero" data-section-id="hero">
       <div className="hero-panel">
-        <p className="hero-section__portal-title">Ithaca&apos;s Client Portal</p>
         <div className="hero-main">
-          <div className="hero-main__copy">
-            <h1>{hero.title}</h1>
+          <div className="hero-main__copy" data-reveal>
+            <h2>{hero.title}</h2>
             <p className="hero-section__description">{hero.description}</p>
           </div>
 
-          <div className="hero-main__support">
+          <div className="hero-main__support" data-reveal>
             <p className="hero-section__lede">{hero.lead}</p>
           </div>
         </div>
       </div>
-    </header>
+    </section>
   );
 }
