@@ -22,7 +22,7 @@ export function SectionProgress({
     <div className="portal-progress-shell">
       <div className="portal-progress-bar">
         <nav className="portal-progress" aria-label={navigationAriaLabel}>
-          {items.map((item, index) => {
+          {items.map((item) => {
             const isActive = item.id === activeSection;
 
             return (
@@ -33,7 +33,6 @@ export function SectionProgress({
                 aria-current={isActive ? 'step' : undefined}
                 aria-label={`${navigationJumpLabel} ${item.label}: ${item.title}`}
               >
-                <span className="portal-progress__index">0{index + 1}</span>
                 <strong>{item.label}</strong>
               </a>
             );
