@@ -4,11 +4,6 @@ export const VIDEO_1_URL = 'https://youtube.com/shorts/4CqpEA_Vb9w?si=PiCrAIEN97
 export const VIDEO_2_URL = 'https://youtube.com/shorts/5jj5bsJgzf4?si=LVIf4HDsf5ghv_KL';
 export const VIDEO_3_URL = 'https://youtube.com/shorts/o5YY6NuGHDY?si=H1qZTf3thh0C-9Fo';
 
-type ActivationStep = {
-  title: string;
-  body: string;
-};
-
 type FormField = {
   id: string;
   label: string;
@@ -35,13 +30,6 @@ export type HeroContent = {
   summaryTitle: string;
   summaryBody: string;
   summaryHighlights: string[];
-};
-
-export type ActivationPanelContent = {
-  title: string;
-  description: string;
-  steps: ActivationStep[];
-  note: string;
 };
 
 export type TransitionContent = {
@@ -76,7 +64,6 @@ export type PortalContent = {
   };
   ui: PortalUiContent;
   hero: HeroContent;
-  activationPanel: ActivationPanelContent;
   sections: PortalVideoSection[];
   transition: TransitionContent;
   form: FormContent;
@@ -85,7 +72,7 @@ export type PortalContent = {
 export const portalContent: PortalContent = {
   meta: {
     title: 'Ithaca | Client Onboarding Portal',
-    description: 'Onboarding portal της Ithaca Agency με 3 βίντεο, panel ενεργοποίησης και φόρμα trial.',
+    description: 'Onboarding portal της Ithaca Agency με 3 βίντεο, σύντομη εισαγωγή και φόρμα trial.',
   },
   ui: {
     navigationAriaLabel: 'Πλοήγηση portal',
@@ -100,38 +87,15 @@ export const portalContent: PortalContent = {
     description:
       'Εδώ ξεκινάει το ταξίδι για την ψηφιακή αναβάθμιση της επιχείρησής σου.',
     lead:
-      'Πριν βουτήξουμε στα βαθιά, ο συνεργάτης μας έχει ετοιμάσει 3 σύντομα βίντεο με πολύτιμα tips για την επιχείρησή σου. Δες τα για να καταλάβεις τη φιλοσοφία μας και, παράλληλα, ακολούθησε τα βήματα στο panel για να ενεργοποιήσεις 15 ημέρες δωρεάν δοκιμής μαζί μας.',
+      'Πριν βουτήξουμε στα βαθιά, ο συνεργάτης μας έχει ετοιμάσει 3 σύντομα βίντεο με πολύτιμα tips για την επιχείρησή σου. Δες τα για να καταλάβεις τη φιλοσοφία μας και, στη συνέχεια, προχώρησε στο τέλος της σελίδας για να ενεργοποιήσεις 15 ημέρες δωρεάν δοκιμής μαζί μας.',
     summaryTitle: 'Τι περιλαμβάνει το portal',
     summaryBody:
-      'Μια σύντομη διαδρομή γνωριμίας με 3 βίντεο, ξεκάθαρα βήματα ενεργοποίησης και μία τελική φόρμα για το free trial.',
+      'Μια σύντομη γνωριμία με 3 βίντεο, μια καθαρή μετάβαση προς δράση και μια τελική φόρμα για το free trial.',
     summaryHighlights: [
       '3 σύντομα βίντεο με πρακτικά tips',
-      'Ορατό panel ενεργοποίησης 15 ημερών free trial',
-      'Τελική φόρμα για να προχωρήσει η επικοινωνία',
+      'Καθαρή εικόνα για το πώς δουλεύουμε στην Ithaca',
+      'Τελική φόρμα για να προχωρήσει η ενεργοποίηση του trial',
     ],
-  },
-  activationPanel: {
-    title: 'Panel ενεργοποίησης',
-    description: 'Ακολούθησε τα παρακάτω βήματα για να προχωρήσει η δωρεάν δοκιμή σου με απλό και καθαρό τρόπο.',
-    steps: [
-      {
-        title: 'Βήμα 1: Δες τα 3 βίντεο',
-        body: 'Ξεκίνα με το περιεχόμενο για να πάρεις μια πρώτη εικόνα για τον τρόπο που δουλεύουμε.',
-      },
-      {
-        title: 'Βήμα 2: Κατανόησε τη φιλοσοφία μας',
-        body: 'Κράτα τα βασικά σημεία που θέλεις να δεις να εφαρμόζονται και στην επιχείρησή σου.',
-      },
-      {
-        title: 'Βήμα 3: Συμπλήρωσε τη φόρμα',
-        body: 'Άφησε τα στοιχεία σου και μια σύντομη εικόνα για την επιχείρηση ή τις ανάγκες σου.',
-      },
-      {
-        title: 'Βήμα 4: Ενεργοποίηση 15 ημερών free trial',
-        body: 'Ένας εκπρόσωπός μας θα επικοινωνήσει μαζί σου για να ξεκινήσει το trial χωρίς δέσμευση.',
-      },
-    ],
-    note: 'Μετά τις 15 ημέρες μπορείς να διακόψεις την υπηρεσία χωρίς κάποια χρέωση.',
   },
   sections: [
     {

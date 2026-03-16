@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ActivationPanel } from '../components/portal/ActivationPanel';
 import { CTASection } from '../components/portal/CTASection';
 import { FormSection } from '../components/portal/FormSection';
 import { HeroSection } from '../components/portal/HeroSection';
@@ -176,17 +175,11 @@ export function ClientPortal({ slug }: ClientPortalProps) {
       />
       <HeroSection hero={portalContent.hero} />
 
-      <div className="portal-content-grid">
-        <div className="portal-sidebar">
-          <ActivationPanel activation={portalContent.activationPanel} />
-        </div>
-
-        <main className="portal-main">
-          {sectionComponents}
-          <CTASection cta={portalContent.transition} />
-          <FormSection form={portalContent.form} />
-        </main>
-      </div>
+      <main className="portal-main">
+        {sectionComponents}
+        <CTASection cta={portalContent.transition} />
+        <FormSection form={portalContent.form} />
+      </main>
     </PortalShell>
   );
 }
