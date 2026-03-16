@@ -22,13 +22,15 @@ export function CTASection({ cta }: CTASectionProps) {
             <p className="portal-section__description">{cta.description}</p>
           </div>
 
-          <div className="cta-actions">
-            <a className="button button--primary" href={cta.primaryAction.href}>
-              {cta.primaryAction.label}
-            </a>
-            <a className="button button--secondary" href={cta.secondaryAction.href}>
-              {cta.secondaryAction.label}
-            </a>
+          <div className="cta-panel__aside">
+            <div className="cta-actions">
+              <a className="button button--primary" href={cta.primaryAction.href}>
+                {cta.primaryAction.label}
+              </a>
+              <a className="button button--secondary" href={cta.secondaryAction.href}>
+                {cta.secondaryAction.label}
+              </a>
+            </div>
           </div>
         </div>
       </div>
