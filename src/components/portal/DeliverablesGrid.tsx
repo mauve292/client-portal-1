@@ -19,8 +19,11 @@ export function DeliverablesGrid({ section, videoUi }: DeliverablesGridProps) {
     >
       <div className="chapter-grid chapter-grid--closing">
         <div className="portal-section__copy">
-          <h2>{section.title}</h2>
-          <p>{section.description}</p>
+          <div className="portal-section__header">
+            <p className="portal-section__eyebrow">{section.progressLabel}</p>
+            <h2>{section.title}</h2>
+          </div>
+          <p className="portal-section__description">{section.description}</p>
 
           <div className="deliverables-support">
             {section.steps && (

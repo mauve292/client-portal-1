@@ -19,8 +19,11 @@ export function VideoNarrativeSection({ section, videoUi }: VideoNarrativeSectio
     >
       <div className="chapter-grid">
         <div className="portal-section__copy">
-          <h2>{section.title}</h2>
-          <p>{section.description}</p>
+          <div className="portal-section__header">
+            <p className="portal-section__eyebrow">{section.progressLabel}</p>
+            <h2>{section.title}</h2>
+          </div>
+          <p className="portal-section__description">{section.description}</p>
 
           {section.cards && (
             <div className="portal-card-row">

@@ -14,9 +14,12 @@ export function CTASection({ cta }: CTASectionProps) {
     >
       <div className="cta-panel">
         <div className="cta-panel__body">
-          <div className="portal-section__copy">
-            <h2>{cta.title}</h2>
-            <p>{cta.description}</p>
+          <div className="portal-section__copy portal-section__copy--cta">
+            <div className="portal-section__header">
+              <p className="portal-section__eyebrow">{cta.progressLabel}</p>
+              <h2>{cta.title}</h2>
+            </div>
+            <p className="portal-section__description">{cta.description}</p>
           </div>
 
           <div className="cta-actions">
