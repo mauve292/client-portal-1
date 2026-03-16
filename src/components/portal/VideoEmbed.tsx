@@ -4,7 +4,6 @@ import type { PortalUiContent } from '../../data/portalContent';
 type VideoEmbedProps = {
   url: string;
   title: string;
-  description: string;
   orientation: 'portrait' | 'landscape';
   ui: Pick<PortalUiContent, 'openOnYoutube' | 'videoTitlePrefix' | 'videoUnavailable'>;
 };
@@ -12,7 +11,6 @@ type VideoEmbedProps = {
 export function VideoEmbed({
   url,
   title,
-  description,
   orientation,
   ui,
 }: VideoEmbedProps) {
@@ -45,13 +43,6 @@ export function VideoEmbed({
               </a>
             </div>
           )}
-        </div>
-
-        <div className="video-card__caption">
-          <div className="video-card__caption-copy">
-            <h3>{title}</h3>
-            <p>{description}</p>
-          </div>
         </div>
       </div>
     </div>

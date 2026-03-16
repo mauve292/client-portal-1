@@ -15,7 +15,6 @@ export function FormSection({ form }: FormSectionProps) {
       <div className="form-panel">
         <div className="form-panel__intro">
           <h2>{form.title}</h2>
-          <p>{form.description}</p>
           <p className="form-panel__note">
             {form.noteLead}
             <strong>{form.noteHighlight}</strong>

@@ -28,8 +28,7 @@ export function VideoNarrativeSection({ section, videoUi }: VideoNarrativeSectio
             <div className="chapter-media__panel">
               <VideoEmbed
                 url={section.videoUrl}
-                title={section.videoTitle}
-                description={section.videoDescription}
+                title={section.title}
                 orientation={section.orientation}
                 ui={videoUi}
               />

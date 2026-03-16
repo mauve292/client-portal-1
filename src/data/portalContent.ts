@@ -17,8 +17,6 @@ export type PortalVideoSection = {
   title: string;
   description: string;
   videoUrl: string;
-  videoTitle: string;
-  videoDescription: string;
   mediaAlign?: 'left' | 'right';
   orientation: 'portrait' | 'landscape';
 };
@@ -39,7 +37,6 @@ export type FormContent = {
   id: string;
   navLabel: string;
   title: string;
-  description: string;
   noteLead: string;
   noteHighlight: string;
   noteTail: string;
@@ -92,36 +89,30 @@ export const portalContent: PortalContent = {
     {
       id: 'video-1',
       navLabel: 'Βίντεο 1',
-      title: 'Μαθαίνοντας τη σημαντικότητα του “short-form video”',
+      title: 'Η ψυχολογία του σύγχρονου καταναλωτή',
       description:
-        'Στο πρώτο βίντεο, ο creator μοιράζεται μαζί σου tips για το πώς η σωστή προσέγγιση αλλάζει τα δεδομένα και τι σημαίνει «ψυχολογία σύγχρονου καταναλωτή». Στην Ithaca Agency, εφαρμόζουμε ακριβώς αυτή τη λογική σε κάθε project.',
+        'Στο πρώτο βίντεο, ο creator μοιράζεται μαζί σου tips για το τι σημαίνει «ψυχολογία σύγχρονου καταναλωτή» και πώς η σωστή προσέγγιση αλλάζει τα δεδομένα. Στην Ithaca Agency, εφαρμόζουμε ακριβώς αυτή τη λογική σε κάθε project.',
       videoUrl: VIDEO_1_URL,
-      videoTitle: 'Βίντεο 1',
-      videoDescription: 'Tips για τη σωστή προσέγγιση και την ψυχολογία του σύγχρονου καταναλωτή.',
       mediaAlign: 'right',
       orientation: 'portrait',
     },
     {
       id: 'video-2',
       navLabel: 'Βίντεο 2',
-      title: 'Ο μαραθώνιος του marketing.',
+      title: 'Μαθαίνοντας τη σημαντικότητα του “short-form video”',
       description:
-        'Ένα σύντομο βίντεο που βάζει το marketing στη σωστή του διάσταση: ως μια διαδρομή συνέπειας, υπομονής και σωστού ρυθμού.',
+        'Ένα σύντομο βίντεο για το γιατί το short-form video έχει τόσο ουσιαστικό ρόλο στη σύγχρονη ψηφιακή παρουσία.',
       videoUrl: VIDEO_2_URL,
-      videoTitle: 'Βίντεο 2',
-      videoDescription: 'Μια καθαρή ματιά στη διάρκεια, τη συνέπεια και το σωστό momentum.',
       mediaAlign: 'left',
       orientation: 'portrait',
     },
     {
       id: 'video-3',
       navLabel: 'Βίντεο 3',
-      title: 'Από τη θεωρία στην πράξη.',
+      title: 'Ο μαραθώνιος του marketing.',
       description:
-        'Το τρίτο βίντεο κλείνει τον κύκλο και δείχνει πώς η θεωρία αποκτά αξία μόνο όταν εφαρμόζεται με σαφή βήματα και σωστή καθοδήγηση.',
+        'Μια καθαρή υπενθύμιση ότι το marketing χρειάζεται συνέπεια, ρυθμό και διάρκεια για να αποδώσει ουσιαστικά.',
       videoUrl: VIDEO_3_URL,
-      videoTitle: 'Βίντεο 3',
-      videoDescription: 'Η μετάβαση από τα tips σε πραγματική εφαρμογή για την επιχείρησή σου.',
       mediaAlign: 'right',
       orientation: 'portrait',
     },
@@ -137,8 +128,6 @@ export const portalContent: PortalContent = {
     navLabel: 'Trial / Φόρμα',
     title:
       'Είμαστε έτοιμοι να αναλάβουμε τη στρατηγική σου, να εφαρμόσουμε τα σωστά hooks και να βελτιστοποιήσουμε την ψηφιακή σου παρουσία. Το μόνο που χωρίζει την επιχείρησή σου από το επόμενο επίπεδο είναι η συμπλήρωση της παρακάτω φόρμας.',
-    description:
-      'Μόλις συμπληρώσεις τη φόρμα, ένας εκπρόσωπός μας θα έρθει σε επικοινωνία μαζί σου για να ενεργοποιηθεί το',
     noteLead: 'Μόλις συμπληρώσεις τη φόρμα, ένας εκπρόσωπός μας θα έρθει σε επικοινωνία μαζί σου για να ενεργοποιηθεί το ',
     noteHighlight: 'δωρεάν trial 15 ημερών',
     noteTail: '. Μετά τις 15 ημέρες, μπορείς να διακόψεις την υπηρεσία χωρίς κάποια χρέωση.',
