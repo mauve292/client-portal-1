@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { CTASection } from '../components/portal/CTASection';
 import { DeliverablesGrid } from '../components/portal/DeliverablesGrid';
 import { HeroSection } from '../components/portal/HeroSection';
@@ -7,10 +7,8 @@ import { SectionProgress } from '../components/portal/SectionProgress';
 import { SoftBackground } from '../components/portal/SoftBackground';
 import { VideoNarrativeSection } from '../components/portal/VideoNarrativeSection';
 import {
-  portalCta,
-  portalHero,
-  portalMeta,
-  portalSections,
+  type Language,
+  portalContentByLanguage,
 } from '../data/portalContent';
 
 type ClientPortalProps = {
@@ -18,44 +16,23 @@ type ClientPortalProps = {
 };
 
 const CLOSE_STEP_ID = 'close';
+type DisplaySection = {
+  id: string;
+  targetId: string;
+  label: string;
+  title: string;
+};
 
-const DISPLAY_SECTIONS = [
-  {
-    id: 'hero',
-    targetId: 'hero',
-    label: 'Opening',
-    title: portalHero.title,
-  },
-  {
-    id: portalSections[0].id,
-    targetId: portalSections[0].id,
-    label: portalSections[0].progressLabel,
-    title: portalSections[0].title,
-  },
-  {
-    id: portalSections[1].id,
-    targetId: portalSections[1].id,
-    label: portalSections[1].progressLabel,
-    title: portalSections[1].title,
-  },
-  {
-    id: CLOSE_STEP_ID,
-    targetId: portalSections[2].id,
-    label: portalCta.progressLabel,
-    title: portalCta.title,
-  },
-];
-
-function normalizeProgressSection(sectionId: string): string {
-  if (sectionId === portalSections[2].id || sectionId === portalCta.id) {
+function normalizeProgressSection(sectionId: string, closingSectionId: string, ctaId: string): string {
+  if (sectionId === closingSectionId || sectionId === ctaId) {
     return CLOSE_STEP_ID;
   }
 
   return sectionId;
 }
 
-function usePortalObservers() {
-  const [activeSection, setActiveSection] = useState(DISPLAY_SECTIONS[0].id);
+function usePortalObservers(displaySections: DisplaySection[], closingSectionId: string, ctaId: string) {
+  const [activeSection, setActiveSection] = useState(displaySections[0]?.id ?? 'hero');
 
   useEffect(() => {
     const revealObserver = new IntersectionObserver(
@@ -81,7 +58,9 @@ function usePortalObservers() {
         if (visibleEntry?.target instanceof HTMLElement) {
           setActiveSection(
             normalizeProgressSection(
-              visibleEntry.target.dataset.sectionId ?? DISPLAY_SECTIONS[0].id,
+              visibleEntry.target.dataset.sectionId ?? displaySections[0]?.id ?? 'hero',
+              closingSectionId,
+              ctaId,
             ),
           );
         }
@@ -98,21 +77,29 @@ function usePortalObservers() {
     revealElements.forEach((element) => revealObserver.observe(element));
     sectionElements.forEach((element) => sectionObserver.observe(element));
 
+    setActiveSection((current) => {
+      if (displaySections.some((section) => section.id === current)) {
+        return current;
+      }
+
+      return displaySections[0]?.id ?? 'hero';
+    });
+
     return () => {
       revealObserver.disconnect();
       sectionObserver.disconnect();
     };
-  }, []);
+  }, [closingSectionId, ctaId, displaySections]);
 
   return activeSection;
 }
 
-function usePortalMetadata() {
+function usePortalMetadata(title: string, description: string) {
   useEffect(() => {
-    document.title = portalMeta.title;
+    document.title = title;
 
     const metaNames: Record<string, string> = {
-      description: portalMeta.description,
+      description,
       robots: 'noindex,nofollow',
     };
 
@@ -127,34 +114,72 @@ function usePortalMetadata() {
 
       tag.content = content;
     });
-  }, []);
+  }, [description, title]);
 }
 
 export function ClientPortal({ slug }: ClientPortalProps) {
-  usePortalMetadata();
-  const activeSection = usePortalObservers();
+  const [language, setLanguage] = useState<Language>('el');
   void slug;
 
-  const sectionComponents = portalSections.map((section) => {
+  const content = portalContentByLanguage[language];
+  const displaySections = useMemo<DisplaySection[]>(
+    () => [
+      {
+        id: 'hero',
+        targetId: 'hero',
+        label: content.ui.openingLabel,
+        title: content.hero.title,
+      },
+      {
+        id: content.sections[0].id,
+        targetId: content.sections[0].id,
+        label: content.sections[0].progressLabel,
+        title: content.sections[0].title,
+      },
+      {
+        id: content.sections[1].id,
+        targetId: content.sections[1].id,
+        label: content.sections[1].progressLabel,
+        title: content.sections[1].title,
+      },
+      {
+        id: CLOSE_STEP_ID,
+        targetId: content.sections[2].id,
+        label: content.cta.progressLabel,
+        title: content.cta.title,
+      },
+    ],
+    [content],
+  );
+
+  usePortalMetadata(content.meta.title, content.meta.description);
+  const activeSection = usePortalObservers(displaySections, content.sections[2].id, content.cta.id);
+
+  const sectionComponents = content.sections.map((section) => {
     if (section.variant === 'closing') {
-      return <DeliverablesGrid key={section.id} section={section} />;
+      return <DeliverablesGrid key={section.id} section={section} videoUi={content.ui} />;
     }
 
-    return <VideoNarrativeSection key={section.id} section={section} />;
+    return <VideoNarrativeSection key={section.id} section={section} videoUi={content.ui} />;
   });
 
   return (
-    <PortalShell>
+    <PortalShell language={language}>
       <SoftBackground />
       <SectionProgress
-        items={DISPLAY_SECTIONS}
+        items={displaySections}
         activeSection={activeSection}
+        language={language}
+        onLanguageChange={setLanguage}
+        navigationAriaLabel={content.ui.navigationAriaLabel}
+        navigationJumpLabel={content.ui.navigationJumpLabel}
+        languageToggleLabel={content.ui.languageToggleLabel}
       />
-      <HeroSection hero={portalHero} />
+      <HeroSection hero={content.hero} />
 
       <main className="portal-main">
         {sectionComponents}
-        <CTASection cta={portalCta} />
+        <CTASection cta={content.cta} />
       </main>
     </PortalShell>
   );

@@ -1,10 +1,12 @@
 import { toYoutubeEmbedUrl } from '../../utils/youtube';
+import type { PortalUiContent } from '../../data/portalContent';
 
 type VideoEmbedProps = {
   url: string;
   title: string;
   description: string;
   orientation: 'portrait' | 'landscape';
+  ui: Pick<PortalUiContent, 'openOnYoutube' | 'videoTitlePrefix' | 'videoUnavailable'>;
 };
 
 export function VideoEmbed({
@@ -12,6 +14,7 @@ export function VideoEmbed({
   title,
   description,
   orientation,
+  ui,
 }: VideoEmbedProps) {
   const embedUrl = toYoutubeEmbedUrl(url);
   const stageClass = `video-stage video-stage--${orientation}`;
@@ -28,7 +31,7 @@ export function VideoEmbed({
           {embedUrl ? (
             <iframe
               src={embedUrl}
-              title={`Ithaca private portal video: ${title}`}
+              title={`${ui.videoTitlePrefix}: ${title}`}
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
@@ -36,9 +39,9 @@ export function VideoEmbed({
             />
           ) : (
             <div className="video-card__fallback">
-              <p>Video unavailable in embed view.</p>
+              <p>{ui.videoUnavailable}</p>
               <a href={url} target="_blank" rel="noreferrer">
-                Open on YouTube
+                {ui.openOnYoutube}
               </a>
             </div>
           )}

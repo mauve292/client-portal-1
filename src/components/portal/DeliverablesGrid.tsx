@@ -1,11 +1,12 @@
-import type { PortalSection } from '../../data/portalContent';
+import type { PortalSection, PortalUiContent } from '../../data/portalContent';
 import { VideoEmbed } from './VideoEmbed';
 
 type DeliverablesGridProps = {
   section: PortalSection;
+  videoUi: Pick<PortalUiContent, 'openOnYoutube' | 'videoTitlePrefix' | 'videoUnavailable'>;
 };
 
-export function DeliverablesGrid({ section }: DeliverablesGridProps) {
+export function DeliverablesGrid({ section, videoUi }: DeliverablesGridProps) {
   const alignClass =
     section.mediaAlign === 'left' ? 'portal-section--media-left' : 'portal-section--media-right';
 
@@ -51,6 +52,7 @@ export function DeliverablesGrid({ section }: DeliverablesGridProps) {
             title={section.videoTitle}
             description={section.videoDescription}
             orientation={section.orientation}
+            ui={videoUi}
           />
         </div>
       </div>

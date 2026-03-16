@@ -175,8 +175,9 @@ select {
 
 .portal-progress-bar {
   display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 0;
+  gap: 0.65rem;
   padding: 0.28rem 0.34rem;
   background: rgba(249, 252, 251, 0.92);
   border: 1px solid var(--stroke);
@@ -236,6 +237,40 @@ select {
   background: rgba(255, 255, 255, 0.98);
   color: var(--text);
   border-color: var(--stroke);
+}
+
+.portal-language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.18rem;
+  padding: 0.14rem;
+  border: 1px solid rgba(95, 123, 121, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.portal-language-toggle__button {
+  min-width: 2.6rem;
+  min-height: 2rem;
+  padding: 0.25rem 0.55rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.portal-language-toggle__button.is-active {
+  background: rgba(47, 79, 79, 0.92);
+  color: #f7fbfa;
+  box-shadow: 0 4px 12px rgba(58, 91, 88, 0.1);
 }
 
 .hero-section {
@@ -648,11 +683,16 @@ select {
   }
 
   .portal-progress-bar {
-    gap: 0;
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
   }
 
   .portal-progress {
     justify-content: flex-start;
+  }
+
+  .portal-language-toggle {
+    justify-self: end;
   }
 
   .hero-section {
@@ -684,6 +724,10 @@ select {
 
   .portal-progress__item strong {
     font-size: 0.74rem;
+  }
+
+  .portal-language-toggle {
+    justify-self: start;
   }
 
   .hero-section h1 {

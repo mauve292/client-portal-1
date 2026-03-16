@@ -1,11 +1,12 @@
-import type { PortalSection } from '../../data/portalContent';
+import type { PortalSection, PortalUiContent } from '../../data/portalContent';
 import { VideoEmbed } from './VideoEmbed';
 
 type VideoNarrativeSectionProps = {
   section: PortalSection;
+  videoUi: Pick<PortalUiContent, 'openOnYoutube' | 'videoTitlePrefix' | 'videoUnavailable'>;
 };
 
-export function VideoNarrativeSection({ section }: VideoNarrativeSectionProps) {
+export function VideoNarrativeSection({ section, videoUi }: VideoNarrativeSectionProps) {
   const alignClass =
     section.mediaAlign === 'left' ? 'portal-section--media-left' : 'portal-section--media-right';
 
@@ -39,6 +40,7 @@ export function VideoNarrativeSection({ section }: VideoNarrativeSectionProps) {
             title={section.videoTitle}
             description={section.videoDescription}
             orientation={section.orientation}
+            ui={videoUi}
           />
         </div>
       </div>

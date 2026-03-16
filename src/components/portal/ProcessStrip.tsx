@@ -1,11 +1,12 @@
-import type { PortalSection } from '../../data/portalContent';
+import type { PortalSection, PortalUiContent } from '../../data/portalContent';
 import { VideoEmbed } from './VideoEmbed';
 
 type ProcessStripProps = {
   section: PortalSection;
+  videoUi: Pick<PortalUiContent, 'openOnYoutube' | 'videoTitlePrefix' | 'videoUnavailable'>;
 };
 
-export function ProcessStrip({ section }: ProcessStripProps) {
+export function ProcessStrip({ section, videoUi }: ProcessStripProps) {
   const alignClass =
     section.mediaAlign === 'left' ? 'portal-section--media-left' : 'portal-section--media-right';
 
@@ -39,6 +40,7 @@ export function ProcessStrip({ section }: ProcessStripProps) {
           title={section.videoTitle}
           description={section.videoDescription}
           orientation={section.orientation}
+          ui={videoUi}
         />
       </div>
     </section>
