@@ -16,15 +16,15 @@
   --page-gutter: 1.25rem;
   --bg: #f7fbfa;
   --bg-soft: #eef6f4;
-  --panel: rgba(255, 255, 255, 0.84);
-  --panel-strong: rgba(255, 255, 255, 0.95);
-  --stroke: rgba(82, 114, 111, 0.08);
-  --stroke-strong: rgba(63, 92, 90, 0.12);
+  --panel: rgba(255, 255, 255, 0.8);
+  --panel-strong: rgba(255, 255, 255, 0.94);
+  --stroke: rgba(82, 114, 111, 0.07);
+  --stroke-strong: rgba(63, 92, 90, 0.1);
   --text: #203c3c;
   --text-soft: #58706e;
   --text-muted: #7e9794;
-  --shadow-soft: 0 8px 18px rgba(48, 79, 79, 0.03);
-  --shadow-panel: 0 14px 32px rgba(48, 79, 79, 0.04);
+  --shadow-soft: 0 6px 14px rgba(48, 79, 79, 0.024);
+  --shadow-panel: 0 10px 24px rgba(48, 79, 79, 0.032);
   --radius-xl: 32px;
   --radius-lg: 22px;
   --radius-md: 16px;
@@ -180,13 +180,13 @@ textarea {
 .portal-progress-bar {
   display: inline-flex;
   align-items: center;
-  max-width: 41rem;
-  padding: 0.24rem 0.28rem;
-  background: rgba(249, 252, 251, 0.8);
-  border: 1px solid rgba(82, 114, 111, 0.07);
-  border-radius: 15px;
+  max-width: 38rem;
+  padding: 0.22rem 0.24rem;
+  background: rgba(249, 252, 251, 0.74);
+  border: 1px solid rgba(82, 114, 111, 0.06);
+  border-radius: 14px;
   backdrop-filter: blur(16px);
-  box-shadow: 0 8px 18px rgba(48, 79, 79, 0.03);
+  box-shadow: 0 6px 14px rgba(48, 79, 79, 0.024);
 }
 
 .portal-progress {
@@ -204,8 +204,8 @@ textarea {
 .portal-progress__item {
   display: inline-flex;
   align-items: center;
-  gap: 0.38rem;
-  padding: 0.32rem 0.52rem;
+  gap: 0.34rem;
+  padding: 0.28rem 0.46rem;
   border: 1px solid transparent;
   border-radius: 999px;
   white-space: nowrap;
@@ -220,17 +220,17 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 1.22rem;
-  height: 1.22rem;
+  min-width: 1.14rem;
+  height: 1.14rem;
   border-radius: 999px;
   background: rgba(235, 243, 241, 0.96);
   color: var(--text-soft);
-  font-size: 0.61rem;
+  font-size: 0.58rem;
   letter-spacing: 0.08em;
 }
 
 .portal-progress__item strong {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
@@ -243,36 +243,36 @@ textarea {
 }
 
 .hero-section {
-  padding-top: 2.15rem;
-  padding-bottom: 1.1rem;
+  padding-top: 2rem;
+  padding-bottom: 0.95rem;
   scroll-margin-top: 5.5rem;
 }
 
 .hero-panel {
   max-width: 48rem;
   margin: 0 auto;
-  padding: clamp(1.25rem, 2vw, 1.7rem);
+  padding: clamp(1.1rem, 1.9vw, 1.45rem);
   border: 1px solid var(--stroke);
   border-radius: var(--radius-xl);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(249, 252, 251, 0.95));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(249, 252, 251, 0.93));
   box-shadow: var(--shadow-panel);
 }
 
 .hero-main {
   display: grid;
-  gap: 0.6rem;
+  gap: 0.52rem;
 }
 
 .hero-main__copy {
   display: grid;
-  gap: 0.56rem;
-  max-width: 33rem;
+  gap: 0.48rem;
+  max-width: 31rem;
 }
 
 .hero-section__context {
   margin: 0;
   color: var(--text-muted);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -280,18 +280,18 @@ textarea {
 
 .hero-section h1 {
   margin: 0;
-  max-width: 10.5ch;
-  font-size: clamp(1.92rem, 3vw, 2.6rem);
-  line-height: 1.03;
+  max-width: 10ch;
+  font-size: clamp(1.82rem, 2.8vw, 2.38rem);
+  line-height: 1.04;
   letter-spacing: -0.05em;
 }
 
 .hero-section__lede {
   margin: 0;
-  max-width: 30rem;
+  max-width: 28rem;
   color: var(--text-soft);
-  font-size: 0.94rem;
-  line-height: 1.62;
+  font-size: 0.92rem;
+  line-height: 1.58;
 }
 
 .chapter-panel,
@@ -305,15 +305,15 @@ textarea {
 
 .portal-main {
   display: grid;
-  gap: 1.75rem;
+  gap: 1.6rem;
   padding-top: 0.1rem;
-  padding-bottom: 3.8rem;
+  padding-bottom: 3.5rem;
 }
 
 .portal-section__copy h2,
 .form-panel h2 {
   margin: 0;
-  font-size: clamp(1.52rem, 1.8vw, 1.95rem);
+  font-size: clamp(1.42rem, 1.65vw, 1.8rem);
   line-height: 1.08;
   letter-spacing: -0.045em;
 }
@@ -355,19 +355,19 @@ textarea {
 .chapter-panel,
 .cta-panel,
 .form-panel {
-  border-radius: 26px;
+  border-radius: 22px;
   box-shadow: var(--shadow-panel);
 }
 
 .chapter-panel {
-  padding: 1.05rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(249, 252, 251, 0.95));
+  padding: 0.96rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(249, 252, 251, 0.94));
 }
 
 .chapter-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(21rem, 23rem);
-  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) minmax(20rem, 21.75rem);
+  gap: 0.88rem;
   align-items: start;
 }
 
@@ -381,8 +381,8 @@ textarea {
 
 .portal-section__copy {
   display: grid;
-  gap: 0.56rem;
-  max-width: 28rem;
+  gap: 0.48rem;
+  max-width: 26rem;
 }
 
 .portal-section__copy h2 {
@@ -392,8 +392,8 @@ textarea {
 .portal-section__description,
 .cta-panel p,
 .form-panel p {
-  font-size: 0.9rem;
-  line-height: 1.56;
+  font-size: 0.88rem;
+  line-height: 1.52;
 }
 
 .chapter-media {
@@ -412,7 +412,7 @@ textarea {
 }
 
 .video-stage--portrait {
-  width: min(100%, 21rem);
+  width: min(100%, 20rem);
 }
 
 .video-stage--landscape {
@@ -421,20 +421,20 @@ textarea {
 
 .video-card {
   width: 100%;
-  padding: 0.42rem;
-  border-radius: 22px;
+  padding: 0.36rem;
+  border-radius: 20px;
   background: var(--panel-strong);
 }
 
 .video-card--portrait {
-  width: min(100%, 21rem);
+  width: min(100%, 20rem);
 }
 
 .video-card__frame {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(82, 114, 111, 0.07);
-  border-radius: 18px;
+  border: 1px solid rgba(82, 114, 111, 0.06);
+  border-radius: 16px;
   background: linear-gradient(180deg, rgba(239, 246, 244, 0.92), rgba(255, 255, 255, 0.98));
 }
 
@@ -484,22 +484,22 @@ textarea {
 }
 
 .video-card__caption {
-  padding: 0.62rem 0.26rem 0.08rem;
+  padding: 0.56rem 0.22rem 0.04rem;
 }
 
 .video-card__caption-copy {
   display: grid;
-  gap: 0.18rem;
+  gap: 0.14rem;
 }
 
 .cta-panel {
-  padding: 1.05rem 1.1rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(248, 251, 250, 0.98));
+  padding: 0.96rem 1rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(248, 251, 250, 0.96));
 }
 
 .cta-panel__body {
   display: grid;
-  gap: 0.4rem;
+  gap: 0.32rem;
 }
 
 .cta-panel__body--transition h2 {
@@ -509,14 +509,14 @@ textarea {
 .form-panel {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: 1rem;
-  padding: 1.1rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(248, 251, 250, 0.98));
+  gap: 0.88rem;
+  padding: 1rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(248, 251, 250, 0.96));
 }
 
 .form-panel__intro {
   display: grid;
-  gap: 0.56rem;
+  gap: 0.5rem;
   align-content: start;
 }
 
@@ -526,18 +526,18 @@ textarea {
 
 .trial-form {
   display: grid;
-  gap: 0.72rem;
+  gap: 0.64rem;
 }
 
 .trial-form__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.66rem;
+  gap: 0.58rem;
 }
 
 .form-field {
   display: grid;
-  gap: 0.36rem;
+  gap: 0.3rem;
 }
 
 .form-field--full {
@@ -547,15 +547,16 @@ textarea {
 .form-field span {
   color: var(--text);
   font-weight: 600;
+  font-size: 0.84rem;
 }
 
 .form-field input,
 .form-field textarea {
   width: 100%;
-  padding: 0.74rem 0.78rem;
-  border: 1px solid rgba(82, 114, 111, 0.1);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.94);
+  padding: 0.7rem 0.74rem;
+  border: 1px solid rgba(82, 114, 111, 0.09);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
   color: var(--text);
 }
 
@@ -568,11 +569,11 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.78rem;
-  padding: 0.68rem 0.96rem;
+  min-height: 2.68rem;
+  padding: 0.64rem 0.92rem;
   border: 1px solid rgba(47, 79, 79, 0.12);
   border-radius: 999px;
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   transition:
@@ -584,7 +585,7 @@ textarea {
 
 .button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 7px 16px rgba(58, 91, 88, 0.05);
+  box-shadow: 0 6px 12px rgba(58, 91, 88, 0.04);
 }
 
 .button--primary {
@@ -655,13 +656,13 @@ textarea {
   .chapter-panel,
   .cta-panel,
   .form-panel {
-    padding: 0.96rem;
-    border-radius: 22px;
+    padding: 0.88rem;
+    border-radius: 20px;
   }
 
   .portal-main {
-    gap: 1.5rem;
-    padding-bottom: 3rem;
+    gap: 1.35rem;
+    padding-bottom: 2.8rem;
   }
 
   .trial-form__grid {
@@ -684,7 +685,7 @@ textarea {
 
   .hero-section h1 {
     max-width: 100%;
-    font-size: clamp(1.76rem, 7.8vw, 2.2rem);
+    font-size: clamp(1.68rem, 7.2vw, 2.05rem);
   }
 
   .hero-section__lede,
@@ -703,7 +704,7 @@ textarea {
 
   .video-stage--portrait,
   .video-card--portrait {
-    width: min(100%, 18.5rem);
+    width: min(100%, 17.75rem);
   }
 
   .button {
