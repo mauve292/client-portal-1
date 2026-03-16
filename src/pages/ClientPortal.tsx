@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { CTASection } from '../components/portal/CTASection';
 import { FormSection } from '../components/portal/FormSection';
 import { HeroSection } from '../components/portal/HeroSection';
 import { PortalShell } from '../components/portal/PortalShell';
@@ -18,7 +19,15 @@ type DisplaySection = {
   title: string;
 };
 
-function usePortalObservers(displaySections: DisplaySection[]) {
+function normalizeProgressSection(sectionId: string, transitionId: string, formId: string): string {
+  if (sectionId === transitionId || sectionId === formId) {
+    return formId;
+  }
+
+  return sectionId;
+}
+
+function usePortalObservers(displaySections: DisplaySection[], transitionId: string, formId: string) {
   const [activeSection, setActiveSection] = useState(displaySections[0]?.id ?? 'hero');
 
   useEffect(() => {
@@ -43,7 +52,13 @@ function usePortalObservers(displaySections: DisplaySection[]) {
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
         if (visibleEntry?.target instanceof HTMLElement) {
-          setActiveSection(visibleEntry.target.dataset.sectionId ?? displaySections[0]?.id ?? 'hero');
+          setActiveSection(
+            normalizeProgressSection(
+              visibleEntry.target.dataset.sectionId ?? displaySections[0]?.id ?? 'hero',
+              transitionId,
+              formId,
+            ),
+          );
         }
       },
       {
@@ -70,7 +85,7 @@ function usePortalObservers(displaySections: DisplaySection[]) {
       revealObserver.disconnect();
       sectionObserver.disconnect();
     };
-  }, [displaySections]);
+  }, [displaySections, formId, transitionId]);
 
   return activeSection;
 }
@@ -137,7 +152,11 @@ export function ClientPortal({ slug }: ClientPortalProps) {
   );
 
   usePortalMetadata(portalContent.meta.title, portalContent.meta.description);
-  const activeSection = usePortalObservers(displaySections);
+  const activeSection = usePortalObservers(
+    displaySections,
+    portalContent.transition.id,
+    portalContent.form.id,
+  );
 
   const sectionComponents = portalContent.sections.map((section) => (
     <VideoNarrativeSection key={section.id} section={section} videoUi={portalContent.ui} />
@@ -162,7 +181,8 @@ export function ClientPortal({ slug }: ClientPortalProps) {
 
       <main className="portal-main">
         {sectionComponents}
-        <FormSection form={portalContent.form} transition={portalContent.transition} />
+        <CTASection cta={portalContent.transition} formIntro={portalContent.form.title} />
+        <FormSection form={portalContent.form} />
       </main>
     </PortalShell>
   );
