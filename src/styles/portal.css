@@ -12,23 +12,23 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --shell-width: 86rem;
+  --shell-width: 84rem;
   --page-gutter: 1.25rem;
   --bg: #f7fbfa;
   --bg-soft: #f0f6f4;
-  --panel: rgba(255, 255, 255, 0.88);
-  --panel-strong: rgba(255, 255, 255, 0.96);
-  --panel-muted: rgba(244, 249, 248, 0.88);
-  --stroke: rgba(79, 110, 108, 0.1);
-  --stroke-strong: rgba(56, 84, 83, 0.16);
+  --panel: rgba(255, 255, 255, 0.84);
+  --panel-strong: rgba(255, 255, 255, 0.94);
+  --panel-muted: rgba(245, 249, 248, 0.82);
+  --stroke: rgba(79, 110, 108, 0.085);
+  --stroke-strong: rgba(56, 84, 83, 0.13);
   --text: #203a3a;
-  --text-soft: #56706e;
-  --text-muted: #7c9492;
-  --shadow-soft: 0 14px 34px rgba(43, 73, 72, 0.045);
-  --shadow-panel: 0 20px 48px rgba(48, 79, 79, 0.06);
-  --radius-xl: 32px;
-  --radius-lg: 24px;
-  --radius-md: 18px;
+  --text-soft: #5b7371;
+  --text-muted: #839896;
+  --shadow-soft: 0 10px 24px rgba(43, 73, 72, 0.032);
+  --shadow-panel: 0 16px 38px rgba(48, 79, 79, 0.045);
+  --radius-xl: 30px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
 }
 
 * {
@@ -176,15 +176,15 @@ select {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.8rem;
-  max-width: 64rem;
+  gap: 0.65rem;
+  max-width: 60rem;
   margin-left: auto;
-  padding: 0.32rem 0.38rem;
-  background: rgba(249, 252, 251, 0.86);
-  border: 1px solid rgba(79, 110, 108, 0.08);
-  border-radius: 18px;
+  padding: 0.28rem 0.34rem;
+  background: rgba(249, 252, 251, 0.82);
+  border: 1px solid rgba(79, 110, 108, 0.07);
+  border-radius: 16px;
   backdrop-filter: blur(18px);
-  box-shadow: 0 12px 28px rgba(48, 79, 79, 0.04);
+  box-shadow: 0 8px 20px rgba(48, 79, 79, 0.03);
 }
 
 .portal-progress {
@@ -204,7 +204,7 @@ select {
   display: inline-flex;
   align-items: center;
   gap: 0.42rem;
-  padding: 0.34rem 0.56rem;
+  padding: 0.3rem 0.5rem;
   border: 1px solid transparent;
   border-radius: 999px;
   white-space: nowrap;
@@ -229,7 +229,7 @@ select {
 }
 
 .portal-progress__item strong {
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
@@ -248,13 +248,13 @@ select {
   padding: 0.14rem;
   border: 1px solid rgba(79, 110, 108, 0.08);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.62);
 }
 
 .portal-language-toggle__button {
   min-width: 2.5rem;
-  min-height: 1.9rem;
-  padding: 0.22rem 0.48rem;
+  min-height: 1.84rem;
+  padding: 0.2rem 0.42rem;
   border: 0;
   border-radius: 999px;
   background: transparent;
@@ -272,40 +272,40 @@ select {
 .portal-language-toggle__button.is-active {
   background: rgba(47, 79, 79, 0.94);
   color: #f7fbfa;
-  box-shadow: 0 5px 14px rgba(48, 79, 79, 0.12);
+  box-shadow: 0 4px 10px rgba(48, 79, 79, 0.1);
 }
 
 .hero-section {
-  padding-top: 2.75rem;
-  padding-bottom: 0.5rem;
+  padding-top: 2.55rem;
+  padding-bottom: 0.35rem;
   scroll-margin-top: 6rem;
 }
 
 .hero-panel {
-  padding: clamp(1.7rem, 2.8vw, 2.45rem);
+  padding: clamp(1.55rem, 2.5vw, 2.15rem);
   border: 1px solid var(--stroke);
-  border-radius: 36px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(250, 252, 251, 0.95));
+  border-radius: 34px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(250, 252, 251, 0.93));
   box-shadow: var(--shadow-panel);
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(22rem, 0.92fr);
-  gap: clamp(1.8rem, 3vw, 3rem);
+  grid-template-columns: minmax(0, 1.04fr) minmax(21rem, 0.88fr);
+  gap: clamp(1.5rem, 2.5vw, 2.45rem);
   align-items: center;
 }
 
 .hero-main {
   display: grid;
-  gap: 1rem;
+  gap: 0.82rem;
   align-content: start;
 }
 
 .hero-main__copy {
   display: grid;
-  gap: 0.82rem;
-  max-width: 38rem;
+  gap: 0.7rem;
+  max-width: 34rem;
 }
 
 .hero-section__context,
@@ -322,25 +322,25 @@ select {
 .hero-section h1 {
   margin: 0;
   max-width: 13ch;
-  font-size: clamp(2.2rem, 3.7vw, 3.35rem);
-  line-height: 1.02;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.03;
   letter-spacing: -0.05em;
 }
 
 .hero-section__lede {
   margin: 0;
-  max-width: 34rem;
+  max-width: 31rem;
   color: var(--text-soft);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.97rem;
+  line-height: 1.66;
 }
 
 .hero-brief {
   display: grid;
-  gap: 1rem;
-  padding: 1.45rem;
-  border: 1px solid rgba(79, 110, 108, 0.11);
-  border-radius: 28px;
+  gap: 0.85rem;
+  padding: 1.2rem 1.22rem;
+  border: 1px solid rgba(79, 110, 108, 0.09);
+  border-radius: 24px;
   background: linear-gradient(180deg, rgba(247, 251, 250, 0.96), rgba(255, 255, 255, 0.98));
   box-shadow: var(--shadow-soft);
 }
@@ -352,15 +352,15 @@ select {
 
 .hero-brief__summary {
   margin: 0;
-  max-width: 24rem;
-  font-size: 1.08rem;
-  line-height: 1.58;
+  max-width: 22rem;
+  font-size: 1rem;
+  line-height: 1.54;
   letter-spacing: -0.02em;
 }
 
 .hero-brief__notes {
   display: grid;
-  gap: 0.72rem;
+  gap: 0.6rem;
 }
 
 .hero-note,
@@ -376,7 +376,7 @@ select {
 }
 
 .hero-note {
-  padding: 0.95rem 1rem;
+  padding: 0.85rem 0.92rem;
 }
 
 .hero-note h3,
@@ -385,7 +385,7 @@ select {
 .deliverable-card h3,
 .video-card__caption h3 {
   margin: 0 0 0.32rem;
-  font-size: 0.98rem;
+  font-size: 0.93rem;
   line-height: 1.28;
   letter-spacing: -0.02em;
 }
@@ -403,9 +403,9 @@ select {
 
 .portal-main {
   display: grid;
-  gap: clamp(3.5rem, 5vw, 4.75rem);
-  padding-top: 2rem;
-  padding-bottom: 4.5rem;
+  gap: clamp(3.2rem, 4.4vw, 4.2rem);
+  padding-top: 1.8rem;
+  padding-bottom: 4rem;
 }
 
 .portal-section {
@@ -420,10 +420,10 @@ select {
 }
 
 .chapter-panel {
-  padding: clamp(1.5rem, 2.8vw, 2.2rem);
+  padding: clamp(1.35rem, 2.4vw, 1.95rem);
   border: 1px solid var(--stroke);
-  border-radius: 34px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(249, 252, 251, 0.96));
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(249, 252, 251, 0.94));
   box-shadow: var(--shadow-panel);
 }
 
@@ -433,13 +433,13 @@ select {
 
 .chapter-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(24rem, 28rem);
-  gap: clamp(1.6rem, 2.6vw, 2.4rem);
+  grid-template-columns: minmax(0, 1fr) minmax(25rem, 29rem);
+  gap: clamp(1.45rem, 2.2vw, 2.1rem);
   align-items: start;
 }
 
 .chapter-grid--closing {
-  grid-template-columns: minmax(0, 1.02fr) minmax(24rem, 28rem);
+  grid-template-columns: minmax(0, 1.02fr) minmax(25rem, 29rem);
 }
 
 .portal-section--media-left .portal-section__copy {
@@ -452,8 +452,8 @@ select {
 
 .portal-section__copy {
   display: grid;
-  gap: 0.95rem;
-  max-width: 38rem;
+  gap: 0.82rem;
+  max-width: 35rem;
   align-content: start;
 }
 
@@ -463,23 +463,23 @@ select {
 
 .portal-section__header {
   display: grid;
-  gap: 0.45rem;
+  gap: 0.38rem;
 }
 
 .portal-section__copy h2,
 .cta-panel h2 {
   margin: 0;
   max-width: 15ch;
-  font-size: clamp(1.9rem, 2.45vw, 2.55rem);
-  line-height: 1.08;
+  font-size: clamp(1.72rem, 2.15vw, 2.25rem);
+  line-height: 1.1;
   letter-spacing: -0.05em;
 }
 
 .portal-section__description,
 .cta-panel p {
-  max-width: 33rem;
-  font-size: 0.96rem;
-  line-height: 1.7;
+  max-width: 30rem;
+  font-size: 0.93rem;
+  line-height: 1.64;
 }
 
 .portal-card-row,
@@ -487,17 +487,17 @@ select {
 .deliverables-strip {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
+  gap: 0.68rem;
 }
 
 .portal-card-row {
-  margin-top: 0.18rem;
+  margin-top: 0.1rem;
 }
 
 .portal-mini-card,
 .deliverables-step,
 .deliverable-card {
-  padding: 1rem 1.04rem 1.06rem;
+  padding: 0.88rem 0.92rem 0.94rem;
   transition:
     background-color 180ms ease,
     border-color 180ms ease,
@@ -520,7 +520,7 @@ select {
 
 .chapter-media__panel {
   width: 100%;
-  max-width: 30rem;
+  max-width: 28.5rem;
 }
 
 .video-stage {
@@ -530,7 +530,7 @@ select {
 }
 
 .video-stage--portrait {
-  width: min(100%, 24rem);
+  width: min(100%, 23rem);
 }
 
 .video-stage--landscape {
@@ -539,15 +539,15 @@ select {
 
 .video-card {
   width: 100%;
-  padding: 0.62rem;
-  border: 1px solid rgba(79, 110, 108, 0.11);
-  border-radius: 30px;
+  padding: 0.52rem;
+  border: 1px solid rgba(79, 110, 108, 0.09);
+  border-radius: 26px;
   background: rgba(255, 255, 255, 0.97);
-  box-shadow: 0 22px 46px rgba(50, 82, 80, 0.08);
+  box-shadow: 0 16px 34px rgba(50, 82, 80, 0.06);
 }
 
 .video-card--portrait {
-  width: min(100%, 24rem);
+  width: min(100%, 23rem);
 }
 
 .video-card--landscape {
@@ -557,8 +557,8 @@ select {
 .video-card__frame {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(79, 110, 108, 0.07);
-  border-radius: 24px;
+  border: 1px solid rgba(79, 110, 108, 0.06);
+  border-radius: 21px;
   background: linear-gradient(180deg, rgba(239, 246, 244, 0.92), rgba(255, 255, 255, 0.98));
 }
 
@@ -608,17 +608,17 @@ select {
 }
 
 .video-card__caption {
-  padding: 0.92rem 0.48rem 0.32rem;
+  padding: 0.78rem 0.38rem 0.18rem;
 }
 
 .video-card__caption-copy {
   display: grid;
-  gap: 0.22rem;
+  gap: 0.18rem;
 }
 
 .video-card__caption p {
-  font-size: 0.9rem;
-  line-height: 1.58;
+  font-size: 0.87rem;
+  line-height: 1.54;
 }
 
 .chapter-section--closing .portal-section__copy {
@@ -627,12 +627,12 @@ select {
 
 .deliverables-support {
   display: grid;
-  gap: 0.95rem;
+  gap: 0.8rem;
 }
 
 .support-cluster {
-  padding: 0.78rem;
-  background: rgba(247, 251, 250, 0.72);
+  padding: 0.62rem;
+  background: rgba(247, 251, 250, 0.64);
 }
 
 .deliverables-step__index {
@@ -645,8 +645,8 @@ select {
 }
 
 .cta-panel {
-  padding: clamp(1.5rem, 2.7vw, 2rem);
-  border-radius: 34px;
+  padding: clamp(1.35rem, 2.3vw, 1.7rem);
+  border-radius: 30px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(248, 251, 250, 0.98));
   box-shadow: var(--shadow-panel);
 }
@@ -654,7 +654,7 @@ select {
 .cta-panel__body {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(15rem, 18rem);
-  gap: 1.5rem;
+  gap: 1.15rem;
   align-items: center;
 }
 
@@ -665,19 +665,19 @@ select {
 
 .cta-actions {
   display: grid;
-  gap: 0.72rem;
-  width: min(100%, 18rem);
+  gap: 0.58rem;
+  width: min(100%, 17rem);
 }
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 3rem;
-  padding: 0.76rem 1.1rem;
+  min-height: 2.85rem;
+  padding: 0.72rem 1rem;
   border: 1px solid rgba(47, 79, 79, 0.12);
   border-radius: 999px;
-  font-size: 0.89rem;
+  font-size: 0.86rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   transition:
@@ -689,7 +689,7 @@ select {
 
 .button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(58, 91, 88, 0.08);
+  box-shadow: 0 8px 18px rgba(58, 91, 88, 0.06);
 }
 
 .button--primary {
@@ -776,8 +776,8 @@ select {
   .hero-panel,
   .chapter-panel,
   .cta-panel {
-    padding: 1.25rem;
-    border-radius: 26px;
+    padding: 1.15rem;
+    border-radius: 24px;
   }
 
   .portal-card-row,
@@ -787,9 +787,9 @@ select {
   }
 
   .portal-main {
-    gap: 3rem;
-    padding-top: 1.55rem;
-    padding-bottom: 3.4rem;
+    gap: 2.8rem;
+    padding-top: 1.45rem;
+    padding-bottom: 3.1rem;
   }
 }
 
@@ -812,26 +812,26 @@ select {
 
   .hero-section h1 {
     max-width: 100%;
-    font-size: clamp(1.95rem, 8.5vw, 2.7rem);
+    font-size: clamp(1.82rem, 8vw, 2.45rem);
   }
 
   .hero-section__lede,
   .hero-brief__summary,
   .portal-section__description,
   .cta-panel p {
-    font-size: 0.94rem;
-    line-height: 1.64;
+    font-size: 0.92rem;
+    line-height: 1.6;
   }
 
   .portal-section__copy h2,
   .cta-panel h2 {
     max-width: 100%;
-    font-size: clamp(1.68rem, 7vw, 2rem);
+    font-size: clamp(1.58rem, 6.8vw, 1.88rem);
   }
 
   .video-stage--portrait,
   .video-card--portrait {
-    width: min(100%, 21rem);
+    width: min(100%, 20rem);
   }
 
   .cta-actions {
