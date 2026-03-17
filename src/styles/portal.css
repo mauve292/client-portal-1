@@ -682,27 +682,33 @@ textarea {
 
 .chapter-media[data-reveal] {
   transition:
-    opacity 420ms ease,
-    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 360ms ease-out,
+    transform 360ms cubic-bezier(0.24, 0.86, 0.34, 1);
 }
 
 .chapter-copy-shell[data-reveal] {
+  opacity: 0;
+  filter: blur(3px);
+  will-change: transform, opacity, filter;
   transition:
-    opacity 620ms ease,
-    transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: 70ms;
+    opacity 720ms cubic-bezier(0.16, 0.84, 0.24, 1),
+    transform 720ms cubic-bezier(0.16, 0.84, 0.24, 1),
+    filter 620ms ease-out;
+  transition-delay: 90ms;
 }
 
 .chapter-copy-shell--from-right[data-reveal] {
-  transform: translate3d(22px, 0, 0);
+  transform: translate3d(18px, 0, 0);
 }
 
 .chapter-copy-shell--from-left[data-reveal] {
-  transform: translate3d(-22px, 0, 0);
+  transform: translate3d(-18px, 0, 0);
 }
 
 .chapter-copy-shell[data-reveal].is-visible {
   transform: translate3d(0, 0, 0);
+  opacity: 1;
+  filter: blur(0);
 }
 
 @keyframes float {
@@ -718,7 +724,7 @@ textarea {
 @media (max-width: 1180px) {
   .portal-page-title {
     max-width: 100%;
-    font-size: clamp(1.66rem, 4.1vw, 2.08rem);
+    font-size: clamp(1.56rem, 3.8vw, 1.94rem);
   }
 
   .hero-main {
@@ -763,7 +769,7 @@ textarea {
   .portal-progress-shell {
     top: 0;
     padding-top: 0.12rem;
-    padding-bottom: 0.34rem;
+    padding-bottom: 0.28rem;
   }
 
   .portal-progress-bar {
@@ -775,8 +781,8 @@ textarea {
   }
 
   .hero-section {
-    padding-top: 0.9rem;
-    padding-bottom: 0.88rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.76rem;
   }
 
   .hero-panel,
@@ -793,15 +799,15 @@ textarea {
   }
 
   .portal-section {
-    padding-block: 0.9rem;
+    padding-block: 0.82rem;
   }
 
   .chapter-section {
-    padding-block: 0.84rem;
+    padding-block: 0.76rem;
   }
 
   .trial-form {
-    padding: 0.72rem;
+    padding: 0.66rem;
   }
 
   .form-panel__note-shell {
@@ -824,15 +830,15 @@ textarea {
   }
 
   .portal-page-title {
-    font-size: clamp(1.06rem, 4.3vw, 1.26rem);
+    font-size: clamp(1rem, 4vw, 1.18rem);
   }
 
   .portal-progress__item {
-    padding: 0.28rem 0.42rem;
+    padding: 0.24rem 0.38rem;
   }
 
   .portal-progress__item strong {
-    font-size: 0.66rem;
+    font-size: 0.64rem;
   }
 
   .hero-section h2 {
