@@ -1,3 +1,5 @@
+/// <reference types="node" />
+
 import { Resend } from 'resend';
 
 const FROM_EMAIL = 'Ithaca Agency <hello@ithaca-agency.gr>';
@@ -77,7 +79,6 @@ export default async function handler(request: ApiRequest, response: ApiResponse
   }
 
   const resend = new Resend(apiKey);
-
   const subject = `Νέα αίτηση 15ήμερου trial από ${businessOrName}`;
   const html = `
     <div style="font-family: Arial, sans-serif; color: #203c3c; line-height: 1.6;">
