@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
 
 const FROM_EMAIL = 'Ithaca Agency <hello@ithaca-agency.gr>';
-const DESTINATION_EMAIL = 'info@ithaca-agency.gr';
+const DESTINATION_EMAIL = 'ithaca.webagency@gmail.com';
 
 type ContactPayload = {
   businessOrName?: unknown;
