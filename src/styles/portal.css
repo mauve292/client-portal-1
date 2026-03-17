@@ -12,7 +12,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --shell-width: 80rem;
+  --shell-width: 76rem;
   --page-gutter: 1.1rem;
   --bg: #f7fbfa;
   --bg-soft: #eef6f4;
@@ -172,12 +172,12 @@ textarea {
 }
 
 .portal-head {
-  padding-top: 0.76rem;
-  padding-bottom: 0.14rem;
+  padding-top: 0.62rem;
+  padding-bottom: 0.04rem;
 }
 
 .portal-head__inner {
-  max-width: 68rem;
+  max-width: 62rem;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -187,9 +187,9 @@ textarea {
   margin: 0;
   white-space: nowrap;
   color: var(--text);
-  font-size: clamp(2.08rem, 2.9vw, 2.56rem);
+  font-size: clamp(2.26rem, 3.06vw, 2.82rem);
   font-weight: 600;
-  line-height: 0.98;
+  line-height: 0.96;
   letter-spacing: -0.038em;
   text-align: center;
 }
@@ -199,7 +199,7 @@ textarea {
   top: 0;
   z-index: 18;
   padding-top: 0.04rem;
-  padding-bottom: 0.24rem;
+  padding-bottom: 0.12rem;
   background: linear-gradient(180deg, rgba(248, 251, 250, 0.96), rgba(248, 251, 250, 0.82) 72%, transparent);
 }
 
@@ -207,19 +207,19 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 40rem;
+  max-width: 33rem;
   margin: 0 auto;
-  padding: 0.14rem;
-  background: rgba(255, 255, 255, 0.74);
-  border: 1px solid rgba(82, 114, 111, 0.08);
+  padding: 0.1rem;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(82, 114, 111, 0.1);
   border-radius: 999px;
-  box-shadow: 0 8px 18px rgba(48, 79, 79, 0.018);
+  box-shadow: 0 8px 18px rgba(48, 79, 79, 0.02);
   backdrop-filter: blur(14px);
 }
 
 .portal-progress {
   display: inline-flex;
-  gap: 0.12rem;
+  gap: 0.05rem;
   min-width: 0;
   overflow-x: auto;
   scrollbar-width: none;
@@ -234,7 +234,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   position: relative;
-  padding: 0.32rem 0.56rem;
+  padding: 0.28rem 0.48rem;
   border-radius: 999px;
   white-space: nowrap;
   color: var(--text-muted);
@@ -245,41 +245,41 @@ textarea {
 }
 
 .portal-progress__item strong {
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.018em;
 }
 
 .portal-progress__item:hover,
 .portal-progress__item.is-active {
   background: rgba(255, 255, 255, 0.98);
   color: var(--text);
-  box-shadow: 0 2px 8px rgba(48, 79, 79, 0.04);
+  box-shadow: 0 4px 10px rgba(48, 79, 79, 0.038);
 }
 
 .hero-section {
-  padding-top: 0.56rem;
-  padding-bottom: 0.72rem;
+  padding-top: 0.42rem;
+  padding-bottom: 0.28rem;
   scroll-margin-top: 4.6rem;
 }
 
 .hero-panel {
-  max-width: 68rem;
+  max-width: 62rem;
   margin: 0 auto;
   padding: 0;
 }
 
 .hero-main {
   display: grid;
-  grid-template-columns: minmax(0, 0.94fr) minmax(21rem, 0.98fr);
-  gap: 0.54rem 0.78rem;
+  grid-template-columns: minmax(0, 0.96fr) minmax(20rem, 0.92fr);
+  gap: 0.32rem 0.48rem;
   align-items: center;
 }
 
 .hero-main__copy {
   display: grid;
-  gap: 0.24rem;
-  max-width: 30rem;
+  gap: 0.16rem;
+  max-width: 31rem;
 }
 
 .hero-main__support {
@@ -291,8 +291,8 @@ textarea {
 .hero-section h2 {
   margin: 0;
   max-width: 11ch;
-  font-size: clamp(1.86rem, 2.1vw, 2.18rem);
-  line-height: 1.01;
+  font-size: clamp(2.02rem, 2.24vw, 2.34rem);
+  line-height: 0.98;
   letter-spacing: -0.05em;
 }
 
@@ -300,17 +300,17 @@ textarea {
 .hero-section__lede {
   margin: 0;
   color: var(--text-soft);
-  font-size: 0.98rem;
+  font-size: 1.03rem;
   line-height: 1.56;
 }
 
 .hero-section__description {
-  max-width: 24rem;
+  max-width: 26rem;
 }
 
 .hero-section__lede {
-  max-width: 31rem;
-  padding-top: 0.04rem;
+  max-width: 27rem;
+  padding-top: 0;
 }
 
 .video-card,
@@ -324,14 +324,14 @@ textarea {
   display: grid;
   gap: 0;
   padding-top: 0;
-  padding-bottom: 2.25rem;
+  padding-bottom: 1.82rem;
 }
 
 .portal-section__copy h2,
 .form-panel h2 {
   margin: 0;
-  font-size: clamp(1.58rem, 1.7vw, 1.9rem);
-  line-height: 1.04;
+  font-size: clamp(1.76rem, 1.88vw, 2.04rem);
+  line-height: 1.01;
   letter-spacing: -0.045em;
 }
 
@@ -344,7 +344,7 @@ textarea {
 
 .form-field span {
   margin: 0;
-  font-size: 0.92rem;
+  font-size: 0.98rem;
   line-height: 1.32;
   letter-spacing: -0.02em;
 }
@@ -354,27 +354,31 @@ textarea {
   padding-top: 0;
   border-top: 0;
   color: var(--text-soft);
-  font-size: 0.82rem;
-  line-height: 1.48;
+  font-size: 0.92rem;
+  line-height: 1.56;
 }
 
 .portal-section {
   scroll-margin-top: 4.8rem;
-  padding-block: 0.76rem;
+  padding-block: 0.54rem;
 }
 
 .chapter-section {
-  padding-block: 0.72rem;
+  padding-block: 0.5rem;
 }
 
 .portal-main > .portal-section + .portal-section {
   border-top: 1px solid rgba(82, 114, 111, 0.08);
 }
 
+.portal-main > .portal-section:first-child {
+  padding-top: 0.28rem;
+}
+
 .chapter-panel,
 .cta-panel,
 .form-panel {
-  max-width: 68rem;
+  max-width: 62rem;
   margin: 0 auto;
   border: 0;
   border-radius: 0;
@@ -388,8 +392,8 @@ textarea {
 
 .chapter-grid {
   display: grid;
-  grid-template-columns: minmax(18.5rem, 21.75rem) minmax(0, 1fr);
-  gap: 0.38rem 0.48rem;
+  grid-template-columns: minmax(19rem, 21rem) minmax(0, 1fr);
+  gap: 0.2rem 0.1rem;
   align-items: center;
 }
 
@@ -400,8 +404,8 @@ textarea {
 
 .portal-section--media-right .chapter-copy-shell {
   order: 1;
-  margin-right: -0.74rem;
-  padding-right: 0.74rem;
+  margin-right: -0.38rem;
+  padding-right: 0.38rem;
 }
 
 .portal-section--media-left .chapter-media {
@@ -411,8 +415,8 @@ textarea {
 
 .portal-section--media-left .chapter-copy-shell {
   order: 2;
-  margin-left: -0.74rem;
-  padding-left: 0.74rem;
+  margin-left: -0.38rem;
+  padding-left: 0.38rem;
 }
 
 .chapter-copy-shell {
@@ -426,20 +430,20 @@ textarea {
 
 .portal-section__copy {
   display: grid;
-  gap: 0.22rem;
-  max-width: 23rem;
+  gap: 0.16rem;
+  max-width: 24rem;
   align-content: center;
   align-self: center;
 }
 
 .portal-section__copy h2 {
-  max-width: 15ch;
+  max-width: 14ch;
 }
 
 .portal-section__description,
 .cta-panel p,
 .form-panel p {
-  font-size: 0.98rem;
+  font-size: 1.01rem;
   line-height: 1.58;
 }
 
@@ -465,7 +469,7 @@ textarea {
 }
 
 .video-stage--portrait {
-  width: min(100%, 19.65rem);
+  width: min(100%, 19.8rem);
 }
 
 .video-stage--landscape {
@@ -474,14 +478,14 @@ textarea {
 
 .video-card {
   width: 100%;
-  padding: 0.22rem;
-  border-radius: 17px;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 5px 12px rgba(48, 79, 79, 0.018);
+  padding: 0.2rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 4px 10px rgba(48, 79, 79, 0.014);
 }
 
 .video-card--portrait {
-  width: min(100%, 19.65rem);
+  width: min(100%, 19.8rem);
 }
 
 .video-card__frame {
@@ -538,13 +542,13 @@ textarea {
 }
 
 .cta-panel {
-  max-width: 68rem;
+  max-width: 62rem;
   padding: 0;
 }
 
 .cta-panel__body {
   display: grid;
-  gap: 0.18rem;
+  gap: 0.1rem;
 }
 
 .cta-panel__body--transition h2 {
@@ -552,14 +556,14 @@ textarea {
 }
 
 .portal-section__copy--cta {
-  max-width: 35rem;
-  gap: 0.24rem;
+  max-width: 40rem;
+  gap: 0.16rem;
 }
 
 .form-panel {
   display: grid;
-  grid-template-columns: minmax(14rem, 16.5rem) minmax(0, 1fr);
-  gap: 0.42rem 0.56rem;
+  grid-template-columns: minmax(13rem, 14.4rem) minmax(0, 1fr);
+  gap: 0.26rem 0.34rem;
   padding: 0;
   align-items: start;
 }
@@ -567,51 +571,47 @@ textarea {
 .form-panel__note-shell {
   display: grid;
   align-content: start;
-  padding-top: 0.18rem;
-  max-width: 14.25rem;
+  padding-top: 0.06rem;
+  max-width: 13.4rem;
+  padding-inline: 0.08rem 0.28rem;
 }
 
 .form-panel__note-shell::before {
   content: '';
-  width: 1.5rem;
+  width: 1.2rem;
   height: 1px;
-  margin-bottom: 0.34rem;
+  margin-bottom: 0.22rem;
   background: rgba(82, 114, 111, 0.18);
 }
 
-.form-panel__transition {
-  display: grid;
-  gap: 0.22rem;
-}
-
 .form-panel h2 {
-  font-size: clamp(1.58rem, 1.65vw, 1.82rem);
+  font-size: clamp(1.76rem, 1.82vw, 1.96rem);
 }
 
 .trial-form {
   display: grid;
-  gap: 0.42rem;
-  padding: 0.68rem;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.42);
-  box-shadow: 0 3px 8px rgba(48, 79, 79, 0.014);
+  gap: 0.3rem;
+  padding: 0.54rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.48);
+  box-shadow: 0 3px 8px rgba(48, 79, 79, 0.012);
 }
 
 .trial-form__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.3rem;
+  gap: 0.2rem;
 }
 
 .trial-form__actions {
   display: grid;
-  gap: 0.2rem;
+  gap: 0.14rem;
 }
 
 .trial-form__status {
   margin: 0;
-  font-size: 0.82rem;
-  line-height: 1.5;
+  font-size: 0.84rem;
+  line-height: 1.48;
 }
 
 .trial-form__status--success {
@@ -624,7 +624,7 @@ textarea {
 
 .form-field {
   display: grid;
-  gap: 0.16rem;
+  gap: 0.1rem;
 }
 
 .form-field--full {
@@ -634,15 +634,15 @@ textarea {
 .form-field span {
   color: var(--text);
   font-weight: 600;
-  font-size: 0.78rem;
+  font-size: 0.82rem;
 }
 
 .form-field input,
 .form-field textarea {
   width: 100%;
-  padding: 0.54rem 0.62rem;
-  border: 1px solid rgba(82, 114, 111, 0.08);
-  border-radius: 12px;
+  padding: 0.46rem 0.54rem;
+  border: 1px solid rgba(82, 114, 111, 0.1);
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.9);
   color: var(--text);
 }
@@ -657,11 +657,11 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.38rem;
-  padding: 0.52rem 0.78rem;
+  min-height: 2.12rem;
+  padding: 0.44rem 0.68rem;
   border: 1px solid rgba(47, 79, 79, 0.12);
   border-radius: 999px;
-  font-size: 0.76rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   transition:
@@ -750,12 +750,12 @@ textarea {
 @media (max-width: 980px) {
   .portal-page-title {
     max-width: 100%;
-    font-size: clamp(1.72rem, 4.2vw, 2.06rem);
+    font-size: clamp(1.98rem, 4.4vw, 2.34rem);
   }
 
   .hero-main {
     grid-template-columns: 1fr;
-    gap: 0.56rem;
+    gap: 0.46rem;
   }
 
   .chapter-grid,
@@ -784,6 +784,7 @@ textarea {
 
   .form-panel__note-shell {
     max-width: 24rem;
+    padding-inline: 0;
   }
 }
 
@@ -795,7 +796,7 @@ textarea {
   .portal-progress-shell {
     top: 0;
     padding-top: 0.12rem;
-    padding-bottom: 0.28rem;
+    padding-bottom: 0.22rem;
   }
 
   .portal-progress-bar {
@@ -803,12 +804,12 @@ textarea {
   }
 
   .portal-progress {
-    gap: 0.14rem;
+    gap: 0.08rem;
   }
 
   .hero-section {
-    padding-top: 0.8rem;
-    padding-bottom: 0.76rem;
+    padding-top: 0.68rem;
+    padding-bottom: 0.58rem;
   }
 
   .hero-panel,
@@ -821,19 +822,19 @@ textarea {
 
   .portal-main {
     gap: 0;
-    padding-bottom: 2rem;
+    padding-bottom: 1.8rem;
   }
 
   .portal-section {
-    padding-block: 0.82rem;
+    padding-block: 0.74rem;
   }
 
   .chapter-section {
-    padding-block: 0.76rem;
+    padding-block: 0.66rem;
   }
 
   .trial-form {
-    padding: 0.66rem;
+    padding: 0.58rem;
   }
 
   .form-panel__note-shell {
@@ -857,20 +858,20 @@ textarea {
   }
 
   .portal-page-title {
-    font-size: clamp(1.28rem, 5vw, 1.56rem);
+    font-size: clamp(1.56rem, 6vw, 1.84rem);
   }
 
   .portal-progress__item {
-    padding: 0.24rem 0.38rem;
+    padding: 0.24rem 0.34rem;
   }
 
   .portal-progress__item strong {
-    font-size: 0.68rem;
+    font-size: 0.72rem;
   }
 
   .hero-section h2 {
     max-width: 100%;
-    font-size: clamp(1.62rem, 6.8vw, 1.94rem);
+    font-size: clamp(1.86rem, 7vw, 2.16rem);
   }
 
   .hero-section__lede,
@@ -878,14 +879,14 @@ textarea {
   .portal-section__description,
   .cta-panel p,
   .form-panel p {
-    font-size: 0.98rem;
-    line-height: 1.62;
+    font-size: 1.02rem;
+    line-height: 1.64;
   }
 
   .portal-section__copy h2,
   .form-panel h2 {
     max-width: 100%;
-    font-size: clamp(1.42rem, 6vw, 1.72rem);
+    font-size: clamp(1.6rem, 6.2vw, 1.9rem);
   }
 
   .video-stage--portrait,
