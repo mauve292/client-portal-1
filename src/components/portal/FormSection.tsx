@@ -21,7 +21,11 @@ export function FormSection({ form }: FormSectionProps) {
             {form.fields.map((field) => (
               <label
                 key={field.id}
-                className={field.type === 'textarea' ? 'form-field form-field--full' : 'form-field'}
+                className={
+                  field.type === 'textarea' || field.id === 'identity'
+                    ? 'form-field form-field--full'
+                    : 'form-field'
+                }
                 htmlFor={field.id}
               >
                 <span>{field.label}</span>

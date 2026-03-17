@@ -133,15 +133,9 @@ export const portalContent: PortalContent = {
     noteTail: '. Μετά τις 15 ημέρες, μπορείς να διακόψεις την υπηρεσία χωρίς κάποια χρέωση.',
     fields: [
       {
-        id: 'full-name',
-        label: 'Ονοματεπώνυμο',
-        placeholder: 'Γράψε το ονοματεπώνυμό σου',
-        type: 'text',
-      },
-      {
-        id: 'business',
-        label: 'Επιχείρηση',
-        placeholder: 'Όνομα επιχείρησης',
+        id: 'identity',
+        label: 'Επωνυμία Επιχείρησης ή Ονοματεπώνυμο',
+        placeholder: 'Γράψε την επωνυμία της επιχείρησης ή το ονοματεπώνυμό σου',
         type: 'text',
       },
       {
@@ -155,12 +149,6 @@ export const portalContent: PortalContent = {
         label: 'Τηλέφωνο',
         placeholder: '69XXXXXXXX',
         type: 'tel',
-      },
-      {
-        id: 'website',
-        label: 'Ιστοσελίδα / Social link',
-        placeholder: 'https://',
-        type: 'url',
       },
       {
         id: 'message',
