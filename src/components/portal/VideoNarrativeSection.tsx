@@ -19,8 +19,8 @@ export function VideoNarrativeSection({ section, videoUi }: VideoNarrativeSectio
       className={`portal-section chapter-section ${alignClass}`}
       data-section-id={section.id}
     >
-      <div className="chapter-panel">
-        <div className="chapter-grid">
+      <div className="chapter-panel chapter-row">
+        <div className="chapter-grid chapter-row__grid">
           <div className="chapter-media" data-reveal>
             <div className="chapter-media__panel">
               <VideoEmbed
@@ -33,7 +33,7 @@ export function VideoNarrativeSection({ section, videoUi }: VideoNarrativeSectio
           </div>
 
           <div className={copyRevealClass} data-reveal>
-            <div className="portal-section__copy">
+            <div className="portal-section__copy chapter-row__copy">
               <h2>{section.title}</h2>
               <p className="portal-section__description">{section.description}</p>
             </div>

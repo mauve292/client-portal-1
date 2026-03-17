@@ -44,16 +44,18 @@ export function FormSection({ form }: FormSectionProps) {
 
   return (
     <section id={form.id} className="portal-section portal-section--form" data-section-id={form.id}>
-      <div className="form-panel">
+      <div className="form-panel bottom-row">
         <aside className="form-panel__note-shell" data-reveal>
-          <p className="form-panel__note">
-            {form.noteLead}
-            <strong>{form.noteHighlight}</strong>
-            {form.noteTail}
-          </p>
+          <div className="form-panel__note-card">
+            <p className="form-panel__note">
+              {form.noteLead}
+              <strong>{form.noteHighlight}</strong>
+              {form.noteTail}
+            </p>
+          </div>
         </aside>
 
-        <form className="trial-form" onSubmit={handleSubmit} data-reveal>
+        <form className="trial-form bottom-row__form" onSubmit={handleSubmit} data-reveal>
           <div className="trial-form__grid">
             {form.fields.map((field) => (
               <label
