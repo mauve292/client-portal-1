@@ -603,6 +603,25 @@ textarea {
   gap: 0.3rem;
 }
 
+.trial-form__actions {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.trial-form__status {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.trial-form__status--success {
+  color: #2f4f4f;
+}
+
+.trial-form__status--error {
+  color: #8a4d4d;
+}
+
 .form-field {
   display: grid;
   gap: 0.16rem;
@@ -655,6 +674,13 @@ textarea {
 .button:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 12px rgba(58, 91, 88, 0.04);
+}
+
+.button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+  box-shadow: none;
 }
 
 .button--primary {

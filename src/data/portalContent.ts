@@ -42,6 +42,9 @@ export type FormContent = {
   noteTail: string;
   fields: FormField[];
   submitLabel: string;
+  submitPendingLabel: string;
+  submitSuccessMessage: string;
+  submitErrorMessage: string;
 };
 
 export type PortalUiContent = {
@@ -133,7 +136,7 @@ export const portalContent: PortalContent = {
     noteTail: '. Μετά τις 15 ημέρες, μπορείς να διακόψεις την υπηρεσία χωρίς κάποια χρέωση.',
     fields: [
       {
-        id: 'identity',
+        id: 'businessOrName',
         label: 'Επωνυμία Επιχείρησης ή Ονοματεπώνυμο',
         placeholder: 'Γράψε την επωνυμία της επιχείρησης ή το ονοματεπώνυμό σου',
         type: 'text',
@@ -158,5 +161,8 @@ export const portalContent: PortalContent = {
       },
     ],
     submitLabel: 'Ζητώ ενεργοποίηση 15 ημερών',
+    submitPendingLabel: 'Αποστολή...',
+    submitSuccessMessage: 'Το αίτημά σου στάλθηκε επιτυχώς. Θα επικοινωνήσουμε σύντομα μαζί σου.',
+    submitErrorMessage: 'Προέκυψε πρόβλημα κατά την αποστολή. Δοκίμασε ξανά.',
   },
 };
